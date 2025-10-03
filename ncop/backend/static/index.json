@@ -1,0 +1,4430 @@
+{
+  "cropland": [
+    {
+      "id": "cropland_layers.cropland_daska",
+      "source": {
+        "cropland_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_daska-outline",
+        "type": "line",
+        "source": "cropland_daska_tiles",
+        "source-layer": "cropland_daska",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_dina",
+      "source": {
+        "cropland_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_dina-outline",
+        "type": "line",
+        "source": "cropland_dina_tiles",
+        "source-layer": "cropland_dina",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_gujranwala",
+      "source": {
+        "cropland_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_gujranwala-outline",
+        "type": "line",
+        "source": "cropland_gujranwala_tiles",
+        "source-layer": "cropland_gujranwala",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_gujrat",
+      "source": {
+        "cropland_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_gujrat-outline",
+        "type": "line",
+        "source": "cropland_gujrat_tiles",
+        "source-layer": "cropland_gujrat",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_hafizabad",
+      "source": {
+        "cropland_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_hafizabad-outline",
+        "type": "line",
+        "source": "cropland_hafizabad_tiles",
+        "source-layer": "cropland_hafizabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_jhelum",
+      "source": {
+        "cropland_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_jhelum-outline",
+        "type": "line",
+        "source": "cropland_jhelum_tiles",
+        "source-layer": "cropland_jhelum",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_kamoke",
+      "source": {
+        "cropland_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_kamoke-outline",
+        "type": "line",
+        "source": "cropland_kamoke_tiles",
+        "source-layer": "cropland_kamoke",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_kharian",
+      "source": {
+        "cropland_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_kharian-outline",
+        "type": "line",
+        "source": "cropland_kharian_tiles",
+        "source-layer": "cropland_kharian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_malakwal",
+      "source": {
+        "cropland_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_malakwal-outline",
+        "type": "line",
+        "source": "cropland_malakwal_tiles",
+        "source-layer": "cropland_malakwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_mandi_bahauddin",
+      "source": {
+        "cropland_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_mandi_bahauddin-outline",
+        "type": "line",
+        "source": "cropland_mandi_bahauddin_tiles",
+        "source-layer": "cropland_mandi_bahauddin",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_narowal",
+      "source": {
+        "cropland_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_narowal-outline",
+        "type": "line",
+        "source": "cropland_narowal_tiles",
+        "source-layer": "cropland_narowal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_nowshera_virkan",
+      "source": {
+        "cropland_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_nowshera_virkan-outline",
+        "type": "line",
+        "source": "cropland_nowshera_virkan_tiles",
+        "source-layer": "cropland_nowshera_virkan",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_pasrur",
+      "source": {
+        "cropland_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_pasrur-outline",
+        "type": "line",
+        "source": "cropland_pasrur_tiles",
+        "source-layer": "cropland_pasrur",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_phalia",
+      "source": {
+        "cropland_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_phalia-outline",
+        "type": "line",
+        "source": "cropland_phalia_tiles",
+        "source-layer": "cropland_phalia",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_pindi_bhattian",
+      "source": {
+        "cropland_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_pindi_bhattian-outline",
+        "type": "line",
+        "source": "cropland_pindi_bhattian_tiles",
+        "source-layer": "cropland_pindi_bhattian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_sambrial",
+      "source": {
+        "cropland_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_sambrial-outline",
+        "type": "line",
+        "source": "cropland_sambrial_tiles",
+        "source-layer": "cropland_sambrial",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_sarai_alamgir",
+      "source": {
+        "cropland_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_sarai_alamgir-outline",
+        "type": "line",
+        "source": "cropland_sarai_alamgir_tiles",
+        "source-layer": "cropland_sarai_alamgir",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_shakargarh",
+      "source": {
+        "cropland_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_shakargarh-outline",
+        "type": "line",
+        "source": "cropland_shakargarh_tiles",
+        "source-layer": "cropland_shakargarh",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_sialkot",
+      "source": {
+        "cropland_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_sialkot-outline",
+        "type": "line",
+        "source": "cropland_sialkot_tiles",
+        "source-layer": "cropland_sialkot",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_wazirabad",
+      "source": {
+        "cropland_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_wazirabad-outline",
+        "type": "line",
+        "source": "cropland_wazirabad_tiles",
+        "source-layer": "cropland_wazirabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "cropland_layers.cropland_zafarwal",
+      "source": {
+        "cropland_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/cropland_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "cropland_layers.cropland_zafarwal-outline",
+        "type": "line",
+        "source": "cropland_zafarwal_tiles",
+        "source-layer": "cropland_zafarwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    }
+  ],
+  "flood_affected_areas": [
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_daska",
+      "source": {
+        "flood_affected_areas_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_daska-outline",
+        "type": "line",
+        "source": "flood_affected_areas_daska_tiles",
+        "source-layer": "flood_affected_areas_daska",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_dina",
+      "source": {
+        "flood_affected_areas_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_dina-outline",
+        "type": "line",
+        "source": "flood_affected_areas_dina_tiles",
+        "source-layer": "flood_affected_areas_dina",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_gujranwala",
+      "source": {
+        "flood_affected_areas_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_gujranwala-outline",
+        "type": "line",
+        "source": "flood_affected_areas_gujranwala_tiles",
+        "source-layer": "flood_affected_areas_gujranwala",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_gujrat",
+      "source": {
+        "flood_affected_areas_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_gujrat-outline",
+        "type": "line",
+        "source": "flood_affected_areas_gujrat_tiles",
+        "source-layer": "flood_affected_areas_gujrat",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_hafizabad",
+      "source": {
+        "flood_affected_areas_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_hafizabad-outline",
+        "type": "line",
+        "source": "flood_affected_areas_hafizabad_tiles",
+        "source-layer": "flood_affected_areas_hafizabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_jhelum",
+      "source": {
+        "flood_affected_areas_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_jhelum-outline",
+        "type": "line",
+        "source": "flood_affected_areas_jhelum_tiles",
+        "source-layer": "flood_affected_areas_jhelum",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_kamoke",
+      "source": {
+        "flood_affected_areas_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_kamoke-outline",
+        "type": "line",
+        "source": "flood_affected_areas_kamoke_tiles",
+        "source-layer": "flood_affected_areas_kamoke",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_kharian",
+      "source": {
+        "flood_affected_areas_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_kharian-outline",
+        "type": "line",
+        "source": "flood_affected_areas_kharian_tiles",
+        "source-layer": "flood_affected_areas_kharian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_malakwal",
+      "source": {
+        "flood_affected_areas_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_malakwal-outline",
+        "type": "line",
+        "source": "flood_affected_areas_malakwal_tiles",
+        "source-layer": "flood_affected_areas_malakwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_mandi_bahauddin",
+      "source": {
+        "flood_affected_areas_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_mandi_bahauddin-outline",
+        "type": "line",
+        "source": "flood_affected_areas_mandi_bahauddin_tiles",
+        "source-layer": "flood_affected_areas_mandi_bahauddin",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_narowal",
+      "source": {
+        "flood_affected_areas_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_narowal-outline",
+        "type": "line",
+        "source": "flood_affected_areas_narowal_tiles",
+        "source-layer": "flood_affected_areas_narowal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_nowshera_virkan",
+      "source": {
+        "flood_affected_areas_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_nowshera_virkan-outline",
+        "type": "line",
+        "source": "flood_affected_areas_nowshera_virkan_tiles",
+        "source-layer": "flood_affected_areas_nowshera_virkan",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_pasrur",
+      "source": {
+        "flood_affected_areas_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_pasrur-outline",
+        "type": "line",
+        "source": "flood_affected_areas_pasrur_tiles",
+        "source-layer": "flood_affected_areas_pasrur",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_phalia",
+      "source": {
+        "flood_affected_areas_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_phalia-outline",
+        "type": "line",
+        "source": "flood_affected_areas_phalia_tiles",
+        "source-layer": "flood_affected_areas_phalia",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_pindi_bhattian",
+      "source": {
+        "flood_affected_areas_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_pindi_bhattian-outline",
+        "type": "line",
+        "source": "flood_affected_areas_pindi_bhattian_tiles",
+        "source-layer": "flood_affected_areas_pindi_bhattian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_sambrial",
+      "source": {
+        "flood_affected_areas_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_sambrial-outline",
+        "type": "line",
+        "source": "flood_affected_areas_sambrial_tiles",
+        "source-layer": "flood_affected_areas_sambrial",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_sarai_alamgir",
+      "source": {
+        "flood_affected_areas_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_sarai_alamgir-outline",
+        "type": "line",
+        "source": "flood_affected_areas_sarai_alamgir_tiles",
+        "source-layer": "flood_affected_areas_sarai_alamgir",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_shakargarh",
+      "source": {
+        "flood_affected_areas_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_shakargarh-outline",
+        "type": "line",
+        "source": "flood_affected_areas_shakargarh_tiles",
+        "source-layer": "flood_affected_areas_shakargarh",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_sialkot",
+      "source": {
+        "flood_affected_areas_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_sialkot-outline",
+        "type": "line",
+        "source": "flood_affected_areas_sialkot_tiles",
+        "source-layer": "flood_affected_areas_sialkot",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_wazirabad",
+      "source": {
+        "flood_affected_areas_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_wazirabad-outline",
+        "type": "line",
+        "source": "flood_affected_areas_wazirabad_tiles",
+        "source-layer": "flood_affected_areas_wazirabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "flood_affected_areas_layers.flood_affected_areas_zafarwal",
+      "source": {
+        "flood_affected_areas_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/flood_affected_areas_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "flood_affected_areas_layers.flood_affected_areas_zafarwal-outline",
+        "type": "line",
+        "source": "flood_affected_areas_zafarwal_tiles",
+        "source-layer": "flood_affected_areas_zafarwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    }
+  ],
+  "hrsl_children_under_five": [
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_daska",
+      "source": {
+        "hrsl_children_under_five_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_daska-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_daska_tiles",
+        "source-layer": "hrsl_children_under_five_daska",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_dina",
+      "source": {
+        "hrsl_children_under_five_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_dina-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_dina_tiles",
+        "source-layer": "hrsl_children_under_five_dina",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_gujranwala",
+      "source": {
+        "hrsl_children_under_five_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_gujranwala-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_gujranwala_tiles",
+        "source-layer": "hrsl_children_under_five_gujranwala",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_gujrat",
+      "source": {
+        "hrsl_children_under_five_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_gujrat-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_gujrat_tiles",
+        "source-layer": "hrsl_children_under_five_gujrat",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_hafizabad",
+      "source": {
+        "hrsl_children_under_five_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_hafizabad-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_hafizabad_tiles",
+        "source-layer": "hrsl_children_under_five_hafizabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_jhelum",
+      "source": {
+        "hrsl_children_under_five_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_jhelum-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_jhelum_tiles",
+        "source-layer": "hrsl_children_under_five_jhelum",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_kamoke",
+      "source": {
+        "hrsl_children_under_five_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_kamoke-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_kamoke_tiles",
+        "source-layer": "hrsl_children_under_five_kamoke",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_kharian",
+      "source": {
+        "hrsl_children_under_five_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_kharian-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_kharian_tiles",
+        "source-layer": "hrsl_children_under_five_kharian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_malakwal",
+      "source": {
+        "hrsl_children_under_five_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_malakwal-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_malakwal_tiles",
+        "source-layer": "hrsl_children_under_five_malakwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_mandi_bahauddin",
+      "source": {
+        "hrsl_children_under_five_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_mandi_bahauddin-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_mandi_bahauddin_tiles",
+        "source-layer": "hrsl_children_under_five_mandi_bahauddin",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_narowal",
+      "source": {
+        "hrsl_children_under_five_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_narowal-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_narowal_tiles",
+        "source-layer": "hrsl_children_under_five_narowal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_nowshera_virkan",
+      "source": {
+        "hrsl_children_under_five_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_nowshera_virkan-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_nowshera_virkan_tiles",
+        "source-layer": "hrsl_children_under_five_nowshera_virkan",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_pasrur",
+      "source": {
+        "hrsl_children_under_five_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_pasrur-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_pasrur_tiles",
+        "source-layer": "hrsl_children_under_five_pasrur",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_phalia",
+      "source": {
+        "hrsl_children_under_five_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_phalia-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_phalia_tiles",
+        "source-layer": "hrsl_children_under_five_phalia",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_pindi_bhattian",
+      "source": {
+        "hrsl_children_under_five_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_pindi_bhattian-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_pindi_bhattian_tiles",
+        "source-layer": "hrsl_children_under_five_pindi_bhattian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_sambrial",
+      "source": {
+        "hrsl_children_under_five_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_sambrial-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_sambrial_tiles",
+        "source-layer": "hrsl_children_under_five_sambrial",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_sarai_alamgir",
+      "source": {
+        "hrsl_children_under_five_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_sarai_alamgir-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_sarai_alamgir_tiles",
+        "source-layer": "hrsl_children_under_five_sarai_alamgir",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_shakargarh",
+      "source": {
+        "hrsl_children_under_five_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_shakargarh-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_shakargarh_tiles",
+        "source-layer": "hrsl_children_under_five_shakargarh",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_sialkot",
+      "source": {
+        "hrsl_children_under_five_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_sialkot-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_sialkot_tiles",
+        "source-layer": "hrsl_children_under_five_sialkot",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_wazirabad",
+      "source": {
+        "hrsl_children_under_five_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_wazirabad-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_wazirabad_tiles",
+        "source-layer": "hrsl_children_under_five_wazirabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_children_under_five_layers.hrsl_children_under_five_zafarwal",
+      "source": {
+        "hrsl_children_under_five_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_children_under_five_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_children_under_five_layers.hrsl_children_under_five_zafarwal-outline",
+        "type": "line",
+        "source": "hrsl_children_under_five_zafarwal_tiles",
+        "source-layer": "hrsl_children_under_five_zafarwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    }
+  ],
+  "hrsl_general": [
+    {
+      "id": "hrsl_general_layers.hrsl_general_daska",
+      "source": {
+        "hrsl_general_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_daska-outline",
+        "type": "line",
+        "source": "hrsl_general_daska_tiles",
+        "source-layer": "hrsl_general_daska",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_dina",
+      "source": {
+        "hrsl_general_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_dina-outline",
+        "type": "line",
+        "source": "hrsl_general_dina_tiles",
+        "source-layer": "hrsl_general_dina",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_gujranwala",
+      "source": {
+        "hrsl_general_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_gujranwala-outline",
+        "type": "line",
+        "source": "hrsl_general_gujranwala_tiles",
+        "source-layer": "hrsl_general_gujranwala",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_gujrat",
+      "source": {
+        "hrsl_general_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_gujrat-outline",
+        "type": "line",
+        "source": "hrsl_general_gujrat_tiles",
+        "source-layer": "hrsl_general_gujrat",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_hafizabad",
+      "source": {
+        "hrsl_general_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_hafizabad-outline",
+        "type": "line",
+        "source": "hrsl_general_hafizabad_tiles",
+        "source-layer": "hrsl_general_hafizabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_jhelum",
+      "source": {
+        "hrsl_general_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_jhelum-outline",
+        "type": "line",
+        "source": "hrsl_general_jhelum_tiles",
+        "source-layer": "hrsl_general_jhelum",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_kamoke",
+      "source": {
+        "hrsl_general_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_kamoke-outline",
+        "type": "line",
+        "source": "hrsl_general_kamoke_tiles",
+        "source-layer": "hrsl_general_kamoke",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_kharian",
+      "source": {
+        "hrsl_general_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_kharian-outline",
+        "type": "line",
+        "source": "hrsl_general_kharian_tiles",
+        "source-layer": "hrsl_general_kharian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_malakwal",
+      "source": {
+        "hrsl_general_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_malakwal-outline",
+        "type": "line",
+        "source": "hrsl_general_malakwal_tiles",
+        "source-layer": "hrsl_general_malakwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_mandi_bahauddin",
+      "source": {
+        "hrsl_general_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_mandi_bahauddin-outline",
+        "type": "line",
+        "source": "hrsl_general_mandi_bahauddin_tiles",
+        "source-layer": "hrsl_general_mandi_bahauddin",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_narowal",
+      "source": {
+        "hrsl_general_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_narowal-outline",
+        "type": "line",
+        "source": "hrsl_general_narowal_tiles",
+        "source-layer": "hrsl_general_narowal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_nowshera_virkan",
+      "source": {
+        "hrsl_general_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_nowshera_virkan-outline",
+        "type": "line",
+        "source": "hrsl_general_nowshera_virkan_tiles",
+        "source-layer": "hrsl_general_nowshera_virkan",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_pasrur",
+      "source": {
+        "hrsl_general_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_pasrur-outline",
+        "type": "line",
+        "source": "hrsl_general_pasrur_tiles",
+        "source-layer": "hrsl_general_pasrur",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_phalia",
+      "source": {
+        "hrsl_general_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_phalia-outline",
+        "type": "line",
+        "source": "hrsl_general_phalia_tiles",
+        "source-layer": "hrsl_general_phalia",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_pindi_bhattian",
+      "source": {
+        "hrsl_general_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_pindi_bhattian-outline",
+        "type": "line",
+        "source": "hrsl_general_pindi_bhattian_tiles",
+        "source-layer": "hrsl_general_pindi_bhattian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_sambrial",
+      "source": {
+        "hrsl_general_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_sambrial-outline",
+        "type": "line",
+        "source": "hrsl_general_sambrial_tiles",
+        "source-layer": "hrsl_general_sambrial",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_sarai_alamgir",
+      "source": {
+        "hrsl_general_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_sarai_alamgir-outline",
+        "type": "line",
+        "source": "hrsl_general_sarai_alamgir_tiles",
+        "source-layer": "hrsl_general_sarai_alamgir",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_shakargarh",
+      "source": {
+        "hrsl_general_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_shakargarh-outline",
+        "type": "line",
+        "source": "hrsl_general_shakargarh_tiles",
+        "source-layer": "hrsl_general_shakargarh",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_sialkot",
+      "source": {
+        "hrsl_general_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_sialkot-outline",
+        "type": "line",
+        "source": "hrsl_general_sialkot_tiles",
+        "source-layer": "hrsl_general_sialkot",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_wazirabad",
+      "source": {
+        "hrsl_general_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_wazirabad-outline",
+        "type": "line",
+        "source": "hrsl_general_wazirabad_tiles",
+        "source-layer": "hrsl_general_wazirabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_general_layers.hrsl_general_zafarwal",
+      "source": {
+        "hrsl_general_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_general_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_general_layers.hrsl_general_zafarwal-outline",
+        "type": "line",
+        "source": "hrsl_general_zafarwal_tiles",
+        "source-layer": "hrsl_general_zafarwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    }
+  ],
+  "hrsl_women": [
+    {
+      "id": "hrsl_women_layers.hrsl_women_daska",
+      "source": {
+        "hrsl_women_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_daska-outline",
+        "type": "line",
+        "source": "hrsl_women_daska_tiles",
+        "source-layer": "hrsl_women_daska",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_dina",
+      "source": {
+        "hrsl_women_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_dina-outline",
+        "type": "line",
+        "source": "hrsl_women_dina_tiles",
+        "source-layer": "hrsl_women_dina",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_gujranwala",
+      "source": {
+        "hrsl_women_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_gujranwala-outline",
+        "type": "line",
+        "source": "hrsl_women_gujranwala_tiles",
+        "source-layer": "hrsl_women_gujranwala",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_gujrat",
+      "source": {
+        "hrsl_women_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_gujrat-outline",
+        "type": "line",
+        "source": "hrsl_women_gujrat_tiles",
+        "source-layer": "hrsl_women_gujrat",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_hafizabad",
+      "source": {
+        "hrsl_women_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_hafizabad-outline",
+        "type": "line",
+        "source": "hrsl_women_hafizabad_tiles",
+        "source-layer": "hrsl_women_hafizabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_jhelum",
+      "source": {
+        "hrsl_women_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_jhelum-outline",
+        "type": "line",
+        "source": "hrsl_women_jhelum_tiles",
+        "source-layer": "hrsl_women_jhelum",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_kamoke",
+      "source": {
+        "hrsl_women_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_kamoke-outline",
+        "type": "line",
+        "source": "hrsl_women_kamoke_tiles",
+        "source-layer": "hrsl_women_kamoke",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_kharian",
+      "source": {
+        "hrsl_women_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_kharian-outline",
+        "type": "line",
+        "source": "hrsl_women_kharian_tiles",
+        "source-layer": "hrsl_women_kharian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_malakwal",
+      "source": {
+        "hrsl_women_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_malakwal-outline",
+        "type": "line",
+        "source": "hrsl_women_malakwal_tiles",
+        "source-layer": "hrsl_women_malakwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_mandi_bahauddin",
+      "source": {
+        "hrsl_women_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_mandi_bahauddin-outline",
+        "type": "line",
+        "source": "hrsl_women_mandi_bahauddin_tiles",
+        "source-layer": "hrsl_women_mandi_bahauddin",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_narowal",
+      "source": {
+        "hrsl_women_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_narowal-outline",
+        "type": "line",
+        "source": "hrsl_women_narowal_tiles",
+        "source-layer": "hrsl_women_narowal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_nowshera_virkan",
+      "source": {
+        "hrsl_women_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_nowshera_virkan-outline",
+        "type": "line",
+        "source": "hrsl_women_nowshera_virkan_tiles",
+        "source-layer": "hrsl_women_nowshera_virkan",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_pasrur",
+      "source": {
+        "hrsl_women_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_pasrur-outline",
+        "type": "line",
+        "source": "hrsl_women_pasrur_tiles",
+        "source-layer": "hrsl_women_pasrur",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_phalia",
+      "source": {
+        "hrsl_women_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_phalia-outline",
+        "type": "line",
+        "source": "hrsl_women_phalia_tiles",
+        "source-layer": "hrsl_women_phalia",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_pindi_bhattian",
+      "source": {
+        "hrsl_women_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_pindi_bhattian-outline",
+        "type": "line",
+        "source": "hrsl_women_pindi_bhattian_tiles",
+        "source-layer": "hrsl_women_pindi_bhattian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_sambrial",
+      "source": {
+        "hrsl_women_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_sambrial-outline",
+        "type": "line",
+        "source": "hrsl_women_sambrial_tiles",
+        "source-layer": "hrsl_women_sambrial",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_sarai_alamgir",
+      "source": {
+        "hrsl_women_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_sarai_alamgir-outline",
+        "type": "line",
+        "source": "hrsl_women_sarai_alamgir_tiles",
+        "source-layer": "hrsl_women_sarai_alamgir",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_shakargarh",
+      "source": {
+        "hrsl_women_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_shakargarh-outline",
+        "type": "line",
+        "source": "hrsl_women_shakargarh_tiles",
+        "source-layer": "hrsl_women_shakargarh",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_sialkot",
+      "source": {
+        "hrsl_women_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_sialkot-outline",
+        "type": "line",
+        "source": "hrsl_women_sialkot_tiles",
+        "source-layer": "hrsl_women_sialkot",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_wazirabad",
+      "source": {
+        "hrsl_women_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_wazirabad-outline",
+        "type": "line",
+        "source": "hrsl_women_wazirabad_tiles",
+        "source-layer": "hrsl_women_wazirabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_women_layers.hrsl_women_zafarwal",
+      "source": {
+        "hrsl_women_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_women_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_women_layers.hrsl_women_zafarwal-outline",
+        "type": "line",
+        "source": "hrsl_women_zafarwal_tiles",
+        "source-layer": "hrsl_women_zafarwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    }
+  ],
+  "hrsl_men": [
+    {
+      "id": "hrsl_men_layers.hrsl_men_daska",
+      "source": {
+        "hrsl_men_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_daska-outline",
+        "type": "line",
+        "source": "hrsl_men_daska_tiles",
+        "source-layer": "hrsl_men_daska",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_dina",
+      "source": {
+        "hrsl_men_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_dina-outline",
+        "type": "line",
+        "source": "hrsl_men_dina_tiles",
+        "source-layer": "hrsl_men_dina",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_gujranwala",
+      "source": {
+        "hrsl_men_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_gujranwala-outline",
+        "type": "line",
+        "source": "hrsl_men_gujranwala_tiles",
+        "source-layer": "hrsl_men_gujranwala",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_gujrat",
+      "source": {
+        "hrsl_men_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_gujrat-outline",
+        "type": "line",
+        "source": "hrsl_men_gujrat_tiles",
+        "source-layer": "hrsl_men_gujrat",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_hafizabad",
+      "source": {
+        "hrsl_men_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_hafizabad-outline",
+        "type": "line",
+        "source": "hrsl_men_hafizabad_tiles",
+        "source-layer": "hrsl_men_hafizabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_jhelum",
+      "source": {
+        "hrsl_men_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_jhelum-outline",
+        "type": "line",
+        "source": "hrsl_men_jhelum_tiles",
+        "source-layer": "hrsl_men_jhelum",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_kamoke",
+      "source": {
+        "hrsl_men_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_kamoke-outline",
+        "type": "line",
+        "source": "hrsl_men_kamoke_tiles",
+        "source-layer": "hrsl_men_kamoke",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_kharian",
+      "source": {
+        "hrsl_men_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_kharian-outline",
+        "type": "line",
+        "source": "hrsl_men_kharian_tiles",
+        "source-layer": "hrsl_men_kharian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_malakwal",
+      "source": {
+        "hrsl_men_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_malakwal-outline",
+        "type": "line",
+        "source": "hrsl_men_malakwal_tiles",
+        "source-layer": "hrsl_men_malakwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_mandi_bahauddin",
+      "source": {
+        "hrsl_men_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_mandi_bahauddin-outline",
+        "type": "line",
+        "source": "hrsl_men_mandi_bahauddin_tiles",
+        "source-layer": "hrsl_men_mandi_bahauddin",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_narowal",
+      "source": {
+        "hrsl_men_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_narowal-outline",
+        "type": "line",
+        "source": "hrsl_men_narowal_tiles",
+        "source-layer": "hrsl_men_narowal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_nowshera_virkan",
+      "source": {
+        "hrsl_men_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_nowshera_virkan-outline",
+        "type": "line",
+        "source": "hrsl_men_nowshera_virkan_tiles",
+        "source-layer": "hrsl_men_nowshera_virkan",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_pasrur",
+      "source": {
+        "hrsl_men_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_pasrur-outline",
+        "type": "line",
+        "source": "hrsl_men_pasrur_tiles",
+        "source-layer": "hrsl_men_pasrur",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_phalia",
+      "source": {
+        "hrsl_men_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_phalia-outline",
+        "type": "line",
+        "source": "hrsl_men_phalia_tiles",
+        "source-layer": "hrsl_men_phalia",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_pindi_bhattian",
+      "source": {
+        "hrsl_men_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_pindi_bhattian-outline",
+        "type": "line",
+        "source": "hrsl_men_pindi_bhattian_tiles",
+        "source-layer": "hrsl_men_pindi_bhattian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_sambrial",
+      "source": {
+        "hrsl_men_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_sambrial-outline",
+        "type": "line",
+        "source": "hrsl_men_sambrial_tiles",
+        "source-layer": "hrsl_men_sambrial",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_sarai_alamgir",
+      "source": {
+        "hrsl_men_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_sarai_alamgir-outline",
+        "type": "line",
+        "source": "hrsl_men_sarai_alamgir_tiles",
+        "source-layer": "hrsl_men_sarai_alamgir",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_shakargarh",
+      "source": {
+        "hrsl_men_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_shakargarh-outline",
+        "type": "line",
+        "source": "hrsl_men_shakargarh_tiles",
+        "source-layer": "hrsl_men_shakargarh",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_sialkot",
+      "source": {
+        "hrsl_men_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_sialkot-outline",
+        "type": "line",
+        "source": "hrsl_men_sialkot_tiles",
+        "source-layer": "hrsl_men_sialkot",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_wazirabad",
+      "source": {
+        "hrsl_men_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_wazirabad-outline",
+        "type": "line",
+        "source": "hrsl_men_wazirabad_tiles",
+        "source-layer": "hrsl_men_wazirabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_men_layers.hrsl_men_zafarwal",
+      "source": {
+        "hrsl_men_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_men_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_men_layers.hrsl_men_zafarwal-outline",
+        "type": "line",
+        "source": "hrsl_men_zafarwal_tiles",
+        "source-layer": "hrsl_men_zafarwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    }
+  ],
+  "hrsl_youth": [
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_daska",
+      "source": {
+        "hrsl_youth_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_daska-outline",
+        "type": "line",
+        "source": "hrsl_youth_daska_tiles",
+        "source-layer": "hrsl_youth_daska",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_dina",
+      "source": {
+        "hrsl_youth_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_dina-outline",
+        "type": "line",
+        "source": "hrsl_youth_dina_tiles",
+        "source-layer": "hrsl_youth_dina",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_gujranwala",
+      "source": {
+        "hrsl_youth_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_gujranwala-outline",
+        "type": "line",
+        "source": "hrsl_youth_gujranwala_tiles",
+        "source-layer": "hrsl_youth_gujranwala",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_gujrat",
+      "source": {
+        "hrsl_youth_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_gujrat-outline",
+        "type": "line",
+        "source": "hrsl_youth_gujrat_tiles",
+        "source-layer": "hrsl_youth_gujrat",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_hafizabad",
+      "source": {
+        "hrsl_youth_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_hafizabad-outline",
+        "type": "line",
+        "source": "hrsl_youth_hafizabad_tiles",
+        "source-layer": "hrsl_youth_hafizabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_jhelum",
+      "source": {
+        "hrsl_youth_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_jhelum-outline",
+        "type": "line",
+        "source": "hrsl_youth_jhelum_tiles",
+        "source-layer": "hrsl_youth_jhelum",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_kamoke",
+      "source": {
+        "hrsl_youth_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_kamoke-outline",
+        "type": "line",
+        "source": "hrsl_youth_kamoke_tiles",
+        "source-layer": "hrsl_youth_kamoke",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_kharian",
+      "source": {
+        "hrsl_youth_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_kharian-outline",
+        "type": "line",
+        "source": "hrsl_youth_kharian_tiles",
+        "source-layer": "hrsl_youth_kharian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_malakwal",
+      "source": {
+        "hrsl_youth_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_malakwal-outline",
+        "type": "line",
+        "source": "hrsl_youth_malakwal_tiles",
+        "source-layer": "hrsl_youth_malakwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_mandi_bahauddin",
+      "source": {
+        "hrsl_youth_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_mandi_bahauddin-outline",
+        "type": "line",
+        "source": "hrsl_youth_mandi_bahauddin_tiles",
+        "source-layer": "hrsl_youth_mandi_bahauddin",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_narowal",
+      "source": {
+        "hrsl_youth_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_narowal-outline",
+        "type": "line",
+        "source": "hrsl_youth_narowal_tiles",
+        "source-layer": "hrsl_youth_narowal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_nowshera_virkan",
+      "source": {
+        "hrsl_youth_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_nowshera_virkan-outline",
+        "type": "line",
+        "source": "hrsl_youth_nowshera_virkan_tiles",
+        "source-layer": "hrsl_youth_nowshera_virkan",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_pasrur",
+      "source": {
+        "hrsl_youth_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_pasrur-outline",
+        "type": "line",
+        "source": "hrsl_youth_pasrur_tiles",
+        "source-layer": "hrsl_youth_pasrur",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_phalia",
+      "source": {
+        "hrsl_youth_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_phalia-outline",
+        "type": "line",
+        "source": "hrsl_youth_phalia_tiles",
+        "source-layer": "hrsl_youth_phalia",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_pindi_bhattian",
+      "source": {
+        "hrsl_youth_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_pindi_bhattian-outline",
+        "type": "line",
+        "source": "hrsl_youth_pindi_bhattian_tiles",
+        "source-layer": "hrsl_youth_pindi_bhattian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_sambrial",
+      "source": {
+        "hrsl_youth_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_sambrial-outline",
+        "type": "line",
+        "source": "hrsl_youth_sambrial_tiles",
+        "source-layer": "hrsl_youth_sambrial",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_sarai_alamgir",
+      "source": {
+        "hrsl_youth_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_sarai_alamgir-outline",
+        "type": "line",
+        "source": "hrsl_youth_sarai_alamgir_tiles",
+        "source-layer": "hrsl_youth_sarai_alamgir",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_shakargarh",
+      "source": {
+        "hrsl_youth_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_shakargarh-outline",
+        "type": "line",
+        "source": "hrsl_youth_shakargarh_tiles",
+        "source-layer": "hrsl_youth_shakargarh",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_sialkot",
+      "source": {
+        "hrsl_youth_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_sialkot-outline",
+        "type": "line",
+        "source": "hrsl_youth_sialkot_tiles",
+        "source-layer": "hrsl_youth_sialkot",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_wazirabad",
+      "source": {
+        "hrsl_youth_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_wazirabad-outline",
+        "type": "line",
+        "source": "hrsl_youth_wazirabad_tiles",
+        "source-layer": "hrsl_youth_wazirabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "hrsl_youth_layers.hrsl_youth_zafarwal",
+      "source": {
+        "hrsl_youth_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/hrsl_youth_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "hrsl_youth_layers.hrsl_youth_zafarwal-outline",
+        "type": "line",
+        "source": "hrsl_youth_zafarwal_tiles",
+        "source-layer": "hrsl_youth_zafarwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    }
+  ],
+  "tehsils": [
+    {
+      "id": "tehsils_layers.tehsil_daska",
+      "source": {
+        "tehsil_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_daska-outline",
+        "type": "line",
+        "source": "tehsil_daska_tiles",
+        "source-layer": "tehsil_daska",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_dina",
+      "source": {
+        "tehsil_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_dina-outline",
+        "type": "line",
+        "source": "tehsil_dina_tiles",
+        "source-layer": "tehsil_dina",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_gujranwala",
+      "source": {
+        "tehsil_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_gujranwala-outline",
+        "type": "line",
+        "source": "tehsil_gujranwala_tiles",
+        "source-layer": "tehsil_gujranwala",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_gujrat",
+      "source": {
+        "tehsil_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_gujrat-outline",
+        "type": "line",
+        "source": "tehsil_gujrat_tiles",
+        "source-layer": "tehsil_gujrat",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_hafizabad",
+      "source": {
+        "tehsil_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_hafizabad-outline",
+        "type": "line",
+        "source": "tehsil_hafizabad_tiles",
+        "source-layer": "tehsil_hafizabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_jhelum",
+      "source": {
+        "tehsil_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_jhelum-outline",
+        "type": "line",
+        "source": "tehsil_jhelum_tiles",
+        "source-layer": "tehsil_jhelum",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_kamoke",
+      "source": {
+        "tehsil_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_kamoke-outline",
+        "type": "line",
+        "source": "tehsil_kamoke_tiles",
+        "source-layer": "tehsil_kamoke",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_kharian",
+      "source": {
+        "tehsil_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_kharian-outline",
+        "type": "line",
+        "source": "tehsil_kharian_tiles",
+        "source-layer": "tehsil_kharian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_malakwal",
+      "source": {
+        "tehsil_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_malakwal-outline",
+        "type": "line",
+        "source": "tehsil_malakwal_tiles",
+        "source-layer": "tehsil_malakwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_mandi_bahauddin",
+      "source": {
+        "tehsil_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_mandi_bahauddin-outline",
+        "type": "line",
+        "source": "tehsil_mandi_bahauddin_tiles",
+        "source-layer": "tehsil_mandi_bahauddin",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_narowal",
+      "source": {
+        "tehsil_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_narowal-outline",
+        "type": "line",
+        "source": "tehsil_narowal_tiles",
+        "source-layer": "tehsil_narowal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_nowshera_virkan",
+      "source": {
+        "tehsil_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_nowshera_virkan-outline",
+        "type": "line",
+        "source": "tehsil_nowshera_virkan_tiles",
+        "source-layer": "tehsil_nowshera_virkan",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_pasrur",
+      "source": {
+        "tehsil_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_pasrur-outline",
+        "type": "line",
+        "source": "tehsil_pasrur_tiles",
+        "source-layer": "tehsil_pasrur",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_phalia",
+      "source": {
+        "tehsil_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_phalia-outline",
+        "type": "line",
+        "source": "tehsil_phalia_tiles",
+        "source-layer": "tehsil_phalia",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_pindi_bhattian",
+      "source": {
+        "tehsil_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_pindi_bhattian-outline",
+        "type": "line",
+        "source": "tehsil_pindi_bhattian_tiles",
+        "source-layer": "tehsil_pindi_bhattian",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_sambrial",
+      "source": {
+        "tehsil_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_sambrial-outline",
+        "type": "line",
+        "source": "tehsil_sambrial_tiles",
+        "source-layer": "tehsil_sambrial",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_sarai_alamgir",
+      "source": {
+        "tehsil_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_sarai_alamgir-outline",
+        "type": "line",
+        "source": "tehsil_sarai_alamgir_tiles",
+        "source-layer": "tehsil_sarai_alamgir",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_shakargarh",
+      "source": {
+        "tehsil_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_shakargarh-outline",
+        "type": "line",
+        "source": "tehsil_shakargarh_tiles",
+        "source-layer": "tehsil_shakargarh",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_sialkot",
+      "source": {
+        "tehsil_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_sialkot-outline",
+        "type": "line",
+        "source": "tehsil_sialkot_tiles",
+        "source-layer": "tehsil_sialkot",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_wazirabad",
+      "source": {
+        "tehsil_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_wazirabad-outline",
+        "type": "line",
+        "source": "tehsil_wazirabad_tiles",
+        "source-layer": "tehsil_wazirabad",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "tehsils_layers.tehsil_zafarwal",
+      "source": {
+        "tehsil_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/tehsil_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "tehsils_layers.tehsil_zafarwal-outline",
+        "type": "line",
+        "source": "tehsil_zafarwal_tiles",
+        "source-layer": "tehsil_zafarwal",
+        "paint": {
+          "line-color": "#d2dae2",
+          "line-width": 1,
+          "line-opacity": 1
+        }
+      }
+    }
+  ],
+  "villages": [
+    {
+      "id": "villages_layers.villages_daska",
+      "source": {
+        "villages_daska_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_daska/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_daska-point",
+        "type": "circle",
+        "source": "villages_daska_tiles",
+        "source-layer": "villages_daska",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_dina",
+      "source": {
+        "villages_dina_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_dina/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_dina-point",
+        "type": "circle",
+        "source": "villages_dina_tiles",
+        "source-layer": "villages_dina",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_gujranwala",
+      "source": {
+        "villages_gujranwala_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_gujranwala/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_gujranwala-point",
+        "type": "circle",
+        "source": "villages_gujranwala_tiles",
+        "source-layer": "villages_gujranwala",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_gujrat",
+      "source": {
+        "villages_gujrat_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_gujrat/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_gujrat-point",
+        "type": "circle",
+        "source": "villages_gujrat_tiles",
+        "source-layer": "villages_gujrat",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_hafizabad",
+      "source": {
+        "villages_hafizabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_hafizabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_hafizabad-point",
+        "type": "circle",
+        "source": "villages_hafizabad_tiles",
+        "source-layer": "villages_hafizabad",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_jhelum",
+      "source": {
+        "villages_jhelum_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_jhelum/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_jhelum-point",
+        "type": "circle",
+        "source": "villages_jhelum_tiles",
+        "source-layer": "villages_jhelum",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_kamoke",
+      "source": {
+        "villages_kamoke_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_kamoke/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_kamoke-point",
+        "type": "circle",
+        "source": "villages_kamoke_tiles",
+        "source-layer": "villages_kamoke",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_kharian",
+      "source": {
+        "villages_kharian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_kharian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_kharian-point",
+        "type": "circle",
+        "source": "villages_kharian_tiles",
+        "source-layer": "villages_kharian",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_malakwal",
+      "source": {
+        "villages_malakwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_malakwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_malakwal-point",
+        "type": "circle",
+        "source": "villages_malakwal_tiles",
+        "source-layer": "villages_malakwal",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_mandi_bahauddin",
+      "source": {
+        "villages_mandi_bahauddin_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_mandi_bahauddin/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_mandi_bahauddin-point",
+        "type": "circle",
+        "source": "villages_mandi_bahauddin_tiles",
+        "source-layer": "villages_mandi_bahauddin",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_narowal",
+      "source": {
+        "villages_narowal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_narowal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_narowal-point",
+        "type": "circle",
+        "source": "villages_narowal_tiles",
+        "source-layer": "villages_narowal",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_nowshera_virkan",
+      "source": {
+        "villages_nowshera_virkan_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_nowshera_virkan/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_nowshera_virkan-point",
+        "type": "circle",
+        "source": "villages_nowshera_virkan_tiles",
+        "source-layer": "villages_nowshera_virkan",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_pasrur",
+      "source": {
+        "villages_pasrur_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_pasrur/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_pasrur-point",
+        "type": "circle",
+        "source": "villages_pasrur_tiles",
+        "source-layer": "villages_pasrur",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_phalia",
+      "source": {
+        "villages_phalia_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_phalia/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_phalia-point",
+        "type": "circle",
+        "source": "villages_phalia_tiles",
+        "source-layer": "villages_phalia",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_pindi_bhattian",
+      "source": {
+        "villages_pindi_bhattian_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_pindi_bhattian/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_pindi_bhattian-point",
+        "type": "circle",
+        "source": "villages_pindi_bhattian_tiles",
+        "source-layer": "villages_pindi_bhattian",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_sambrial",
+      "source": {
+        "villages_sambrial_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_sambrial/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_sambrial-point",
+        "type": "circle",
+        "source": "villages_sambrial_tiles",
+        "source-layer": "villages_sambrial",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_sarai_alamgir",
+      "source": {
+        "villages_sarai_alamgir_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_sarai_alamgir/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_sarai_alamgir-point",
+        "type": "circle",
+        "source": "villages_sarai_alamgir_tiles",
+        "source-layer": "villages_sarai_alamgir",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_shakargarh",
+      "source": {
+        "villages_shakargarh_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_shakargarh/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_shakargarh-point",
+        "type": "circle",
+        "source": "villages_shakargarh_tiles",
+        "source-layer": "villages_shakargarh",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_sialkot",
+      "source": {
+        "villages_sialkot_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_sialkot/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_sialkot-point",
+        "type": "circle",
+        "source": "villages_sialkot_tiles",
+        "source-layer": "villages_sialkot",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_wazirabad",
+      "source": {
+        "villages_wazirabad_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_wazirabad/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_wazirabad-point",
+        "type": "circle",
+        "source": "villages_wazirabad_tiles",
+        "source-layer": "villages_wazirabad",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    },
+    {
+      "id": "villages_layers.villages_zafarwal",
+      "source": {
+        "villages_zafarwal_tiles": {
+          "type": "vector",
+          "tiles": [
+            "http://localhost:5000/villages_zafarwal/{z}/{x}/{y}.pbf"
+          ],
+          "maxzoom": 22
+        }
+      },
+      "layer": {
+        "id": "villages_layers.villages_zafarwal-point",
+        "type": "circle",
+        "source": "villages_zafarwal_tiles",
+        "source-layer": "villages_zafarwal",
+        "paint": {
+          "circle-color": "#4264fb",
+          "circle-radius": 4,
+          "circle-opacity": 0.8,
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1.5,
+          "circle-stroke-opacity": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>GeoDjango Map Dashboard</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    
+    <!-- Mapbox -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Cabin Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'cabin': ['Cabin', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        #map {
+            position: absolute;
+            top: 64px;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="font-cabin bg-slate-50">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full h-16 bg-white shadow-lg z-50 border-b border-slate-200">
+        <div class="flex items-center justify-between h-full px-6">
+            <!-- Logo & Title -->
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-semibold text-slate-900">GeoDjango Map</h1>
+                    <p class="text-xs text-slate-500">Mapping Dashboard</p>
+                </div>
+            </div>
+            
+            <!-- User Info & Actions -->
+            <div class="flex items-center space-x-4">
+                <!-- User Welcome -->
+                <div class="flex items-center space-x-2 text-sm">
+                    <div class="flex items-center justify-center w-8 h-8 bg-primary-100 rounded-full">
+                        <i data-lucide="user" class="w-4 h-4 text-primary-600"></i>
+                    </div>
+                    <span class="text-slate-700 font-medium">
+                        Welcome, {{ user.first_name|default:user.username }}!
+                    </span>
+                </div>
+                
+                <!-- Logout Button -->
+                <a href="{% url 'logout' %}" 
+                   class="inline-flex items-center px-3 py-2 border border-slate-300 rounded-lg text-sm font-medium text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200">
+                    <i data-lucide="log-out" class="w-4 h-4 mr-1"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Map Container -->
+    <div id="map"></div></body>
+
+    <script>
+        mapboxgl.accessToken = "pk.eyJ1IjoibmVvYzIwMjMiLCJhIjoiY2x1aTBubHAwMjYzOTJqcGc2cGFhMHU2ciJ9.tFU9_qFCY02qCvfiPMPDUg";  // replace with your token
+        const map = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/streets-v12",
+            center: [74.3, 31.5], // adjust to your area
+            zoom: 6,
+            projection: 'mercator'
+        });
+
+        // Map initialization complete - layers panel removed
+    </script>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
