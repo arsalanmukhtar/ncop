@@ -15,7 +15,10 @@ from django.db import IntegrityError
 
 @login_required
 def index(request):
-    return render(request, "dashboard.html")
+    context = {
+        'mapbox_token': settings.MAPBOX_ACCESS_TOKEN
+    }
+    return render(request, "dashboard.html", context)
 
 
 def login_view(request):
@@ -97,7 +100,6 @@ def signup_view(request):
 
 def logout_view(request):
     logout(request)
-    messages.info(request, 'You have been logged out successfully.')
     return redirect('login')
 
 

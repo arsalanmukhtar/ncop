@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <title>GeoDjango Map Dashboard</title>
+    <title>NCOP Dashboard</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     
     <!-- Mapbox -->
@@ -20,6 +21,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Dashboard Styles -->
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
     
     <script>
         tailwind.config = {
@@ -39,14 +43,20 @@
                 }
             }
         }
-    </script>
-
-    <style>
+    </script>    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
         #map {
             position: absolute;
             top: 64px;
+            left: 0;
+            right: 0;
             bottom: 0;
             width: 100%;
+            height: calc(100vh - 64px);
         }
     </style>
 </head>
@@ -86,28 +96,16 @@
                 </a>
             </div>
         </div>
-    </nav>
+    </nav>    <!-- Map Container -->
+    <div id="map"></div>
     
-    <!-- Map Container -->
-    <div id="map"></div></body>
-
+    <!-- Pass Django variables to JavaScript -->
     <script>
-        mapboxgl.accessToken = "pk.eyJ1IjoibmVvYzIwMjMiLCJhIjoiY2x1aTBubHAwMjYzOTJqcGc2cGFhMHU2ciJ9.tFU9_qFCY02qCvfiPMPDUg";  // replace with your token
-        const map = new mapboxgl.Map({
-            container: "map",
-            style: "mapbox://styles/mapbox/streets-v12",
-            center: [74.3, 31.5], // adjust to your area
-            zoom: 6,
-            projection: 'mercator'
-        });
-
-        // Map initialization complete - layers panel removed
+        window.MAPBOX_ACCESS_TOKEN = "{{ mapbox_token|escapejs }}";
     </script>
     
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-    </script>
+    <!-- Dashboard JavaScript -->
+    <script src="{% static 'js/dashboard.js' %}"></script>
 </body>
 
 </html>

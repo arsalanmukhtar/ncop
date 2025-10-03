@@ -1,0 +1,47 @@
+/* Dashboard Page Specific Styles */
+.dashboard-nav {
+    background-color: var(--primary-600);
+    border-bottom: 1px solid var(--primary-700);
+}
+
+.dashboard-nav .logo-container img {
+    animation: spin-y 3s linear infinite;
+}
+
+.dashboard-nav .welcome-text {
+    color: var(--accent-100);
+}
+
+.logout-btn {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+}
+
+.logout-btn:hover {
+    background-color: #f8fafc;
+}
+
+.logout-btn:focus {
+    border-color: var(--primary-500);
+}
+
+/* Map container */
+#map {
+    width: 100%;
+    height: calc(100vh - 80px); /* Adjust based on nav height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-nav .nav-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .dashboard-nav .user-section {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
