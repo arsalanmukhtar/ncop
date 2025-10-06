@@ -1,0 +1,36 @@
+{
+  "gis_layers": {
+    "Administrative Boundaries": {
+      "object1": {
+        "label": "",
+        "image": "",
+        "type": "",
+        "endpoint": ""
+      }
+    },
+    "Infrastructure": {},
+    "Hydrological Layers": {}
+  },
+  "weather": {
+    "Radar Layers": {},
+    "Global Deterministic Prediction System (GDPS)": {},
+    "ECMWF Weather Forecast Parameters": {},
+    "Meteoblue Forecast": {},
+    "Pakistan Meteorological Department (PMD)": {},
+    "Indian Meteorological Department (IMD)": {}
+  },
+  "flood": {
+    "Global Flood Awareness System (GloFAS)": {}
+  },
+  "air_quality": {
+    "Real Time Air Quality Parameters": {}
+  },
+  "ocean/coastal": {
+    "Oceanography": {}
+  },
+  "Disaster Early Warning (DEW)": {
+    "DEW Polygons": {},
+    "DEW Exposures Api Features": {},
+    "DEW Parameters": {}
+  }
+}

@@ -82,7 +82,7 @@
 </head>
 
 <body class="font-cabin bg-slate-50">    <!-- Left Navigation Panel -->
-    <div class="fixed top-3 left-3 z-50 bg-black/80 backdrop-filter border-2 border-white rounded-2xl p-6 max-w-xs">
+    <div class="fixed top-3 left-3 z-50 bg-black/60 backdrop-filter border-2 border-white rounded-2xl p-6" style="backdrop-filter: blur(2px); width: 380px;">
         <div class="flex items-center space-x-4">
             <!-- NDMA Logo -->
             <div class="w-16 h-16 flex-shrink-0">
@@ -92,9 +92,7 @@
             </div>
               <!-- Title Text -->
             <div class="text-left flex-1">
-                <h1 class="text-lg font-bold text-white leading-tight">National Common</h1>
-                <h1 class="text-lg font-bold text-white leading-tight">Operating Picture</h1>
-                <p class="text-xs text-gray-300 mt-1">(NCOP)</p>
+                <h1 class="text-lg font-normal text-white leading-tight">National Common Operating Picture<span class="text-gray-300 mt-1"> (NCOP)</span></h1>
             </div>
         </div>
     </div>
@@ -116,31 +114,28 @@
             <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>
             Logout
         </a>
-    </div>
-
-    <!-- Sidebar Panel -->
-    <div id="sidebarPanel" class="sidebar-panel">
-        <div class="sidebar-header">
+    </div>    <!-- Sidebar Panel -->
+    <div id="sidebarPanel" class="sidebar-panel">        <div class="sidebar-header">
             <h2 class="sidebar-title">Menu</h2>
+            <div class="sidebar-search-container">
+                <div class="search-input-wrapper">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="sidebarSearch" placeholder="Search..." class="search-input">
+                    <button id="clearSearch" class="clear-search-btn" style="display: none;">
+                        <i data-lucide="x" class="clear-icon"></i>
+                    </button>
+                </div>
+            </div>
             <button id="sidebarCloseBtn" class="sidebar-close-btn" title="Close Menu">
                 <i data-lucide="x"></i>
             </button>
         </div>
-        
-        <div class="sidebar-content" id="sidebarContent">
+          <div class="sidebar-content" id="sidebarContent">
             <!-- Accordion content will be dynamically loaded here -->
-            <div class="sidebar-accordion">
-                <div class="accordion-header" data-accordion="sample">
-                    <h3 class="accordion-title">Sample Accordion</h3>
-                    <i data-lucide="chevron-down" class="accordion-icon"></i>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        This is a sample accordion. Content will be loaded from JSON configuration.
-                    </div>
-                </div>
+            <div class="accordion-container">
+                <!-- NCOP menu items will be loaded here from ncop_menu.json -->
             </div>
-        </div>    </div>
+        </div></div>
 
     <!-- Map Container -->
     <div id="map"></div>

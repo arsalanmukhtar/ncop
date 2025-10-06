@@ -1,0 +1,260 @@
+{
+  "gis_layers": {
+    "Administrative Boundaries": {
+      "object1": {
+        "label": "Provincial Boundaries",
+        "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/gis/provincial-boundaries"
+      },
+      "object2": {
+        "label": "District Boundaries",
+        "image": "",
+        "type": "toggle", 
+        "endpoint": "/api/gis/district-boundaries"
+      },
+      "object3": {
+        "label": "Tehsil Boundaries",
+        "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=150&h=100&fit=crop",
+        "type": "dropdown",
+        "endpoint": "/api/gis/tehsil-boundaries"
+      }
+    },
+    "Infrastructure": {
+      "object1": {
+        "label": "Hospitals & Health Centers",
+        "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/infrastructure/hospitals"
+      },
+      "object2": {
+        "label": "Educational Institutions",
+        "image": "",
+        "type": "dropdown",
+        "endpoint": "/api/infrastructure/schools"
+      },
+      "object3": {
+        "label": "Transportation Network",
+        "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/infrastructure/transport"
+      }
+    },
+    "Hydrological Layers": {
+      "object1": {
+        "label": "Major Rivers",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/hydro/rivers"
+      },
+      "object2": {
+        "label": "Dams & Reservoirs",
+        "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=150&h=100&fit=crop",
+        "type": "dropdown",
+        "endpoint": "/api/hydro/dams"
+      },
+      "object3": {
+        "label": "Groundwater Levels",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/hydro/groundwater"
+      }
+    }
+  },
+  "weather": {
+    "Radar Layers": {
+      "object1": {
+        "label": "Precipitation Radar",
+        "image": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/weather/radar/precipitation"
+      },
+      "object2": {
+        "label": "Wind Speed Radar",
+        "image": "",
+        "type": "dropdown",
+        "endpoint": "/api/weather/radar/wind-speed"
+      }
+    },
+    "Global Deterministic Prediction System (GDPS)": {
+      "object1": {
+        "label": "Temperature Forecast",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/weather/gdps/temperature"
+      },
+      "object2": {
+        "label": "Humidity Forecast",
+        "image": "https://images.unsplash.com/photo-1534274867514-d5b47ef29e95?w=150&h=100&fit=crop",
+        "type": "dropdown",
+        "endpoint": "/api/weather/gdps/humidity"
+      }
+    },
+    "ECMWF Weather Forecast Parameters": {
+      "object1": {
+        "label": "Pressure Systems",
+        "image": "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/weather/ecmwf/pressure"
+      },
+      "object2": {
+        "label": "Storm Tracking",
+        "image": "",
+        "type": "dropdown",
+        "endpoint": "/api/weather/ecmwf/storms"
+      }
+    },
+    "Meteoblue Forecast": {
+      "object1": {
+        "label": "7-Day Forecast",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/weather/meteoblue/forecast-7day"
+      },
+      "object2": {
+        "label": "Hourly Predictions",
+        "image": "https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=150&h=100&fit=crop",
+        "type": "dropdown",
+        "endpoint": "/api/weather/meteoblue/hourly"
+      }
+    },
+    "Pakistan Meteorological Department (PMD)": {
+      "object1": {
+        "label": "Weather Stations",
+        "image": "https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/weather/pmd/stations"
+      },
+      "object2": {
+        "label": "Daily Weather Reports",
+        "image": "",
+        "type": "dropdown",
+        "endpoint": "/api/weather/pmd/daily-reports"
+      }
+    },
+    "Indian Meteorological Department (IMD)": {
+      "object1": {
+        "label": "Cross-Border Weather",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/weather/imd/cross-border"
+      },
+      "object2": {
+        "label": "Monsoon Tracking",
+        "image": "https://images.unsplash.com/photo-1433162653888-a571db5ccccf?w=150&h=100&fit=crop",
+        "type": "dropdown",
+        "endpoint": "/api/weather/imd/monsoon"
+      }
+    }
+  },
+  "flood": {
+    "Global Flood Awareness System (GloFAS)": {
+      "object1": {
+        "label": "Flood Risk Areas",
+        "image": "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/flood/glofas/risk-areas"
+      },
+      "object2": {
+        "label": "River Discharge Levels",
+        "image": "",
+        "type": "dropdown",
+        "endpoint": "/api/flood/glofas/discharge"
+      },
+      "object3": {
+        "label": "Early Warning Alerts",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/flood/glofas/alerts"
+      }
+    }
+  },
+  "air_quality": {
+    "Real Time Air Quality Parameters": {
+      "object1": {
+        "label": "PM2.5 Monitoring",
+        "image": "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/air-quality/pm25"
+      },
+      "object2": {
+        "label": "Air Quality Index (AQI)",
+        "image": "",
+        "type": "dropdown",
+        "endpoint": "/api/air-quality/aqi"
+      },
+      "object3": {
+        "label": "Pollution Hotspots",
+        "image": "https://images.unsplash.com/photo-1621451537084-482c73073a0f?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/air-quality/hotspots"
+      }
+    }
+  },
+  "ocean/coastal": {
+    "Oceanography": {
+      "object1": {
+        "label": "Sea Surface Temperature",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/ocean/temperature"
+      },
+      "object2": {
+        "label": "Wave Height Monitoring", 
+        "image": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=150&h=100&fit=crop",
+        "type": "dropdown",
+        "endpoint": "/api/ocean/wave-height"
+      },
+      "object3": {
+        "label": "Coastal Erosion Risk",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/ocean/erosion-risk"
+      }
+    }
+  },
+  "Disaster Early Warning (DEW)": {
+    "DEW Polygons": {
+      "object1": {
+        "label": "High Risk Zones",
+        "image": "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=150&h=100&fit=crop",
+        "type": "toggle",
+        "endpoint": "/api/dew/polygons/high-risk"
+      },
+      "object2": {
+        "label": "Evacuation Zones",
+        "image": "",
+        "type": "dropdown",
+        "endpoint": "/api/dew/polygons/evacuation"
+      }
+    },
+    "DEW Exposures Api Features": {
+      "object1": {
+        "label": "Population Exposure",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/dew/exposure/population"
+      },
+      "object2": {
+        "label": "Infrastructure Exposure",
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&h=100&fit=crop",
+        "type": "dropdown",
+        "endpoint": "/api/dew/exposure/infrastructure"
+      }
+    },
+    "DEW Parameters": {
+      "object1": {
+        "label": "Risk Assessment Parameters",
+        "image": "",
+        "type": "toggle",
+        "endpoint": "/api/dew/parameters/risk-assessment"
+      },
+      "object2": {
+        "label": "Alert Thresholds",
+        "image": "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=150&h=100&fit=crop",
+        "type": "dropdown",
+        "endpoint": "/api/dew/parameters/alert-thresholds"
+      }
+    }
+  }
+}
