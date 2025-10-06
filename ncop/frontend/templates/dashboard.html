@@ -51,52 +51,73 @@
         }
         #map {
             position: absolute;
-            top: 64px;
+            top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             width: 100%;
-            height: calc(100vh - 64px);
+            height: 100vh;
+        }
+        
+        /* NDMA Logo Animation */
+        .logo-spin {
+            animation: spin-y 3s linear infinite;
+        }
+        
+        @keyframes spin-y {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+          /* User Panel Toggle Animation */
+        .user-panel-visible {
+            transform: translateX(0) !important;
+            opacity: 1 !important;
+        }
+        
+        /* Hide Mapbox Attribution */
+        .mapboxgl-ctrl-attrib {
+            display: none !important;
         }
     </style>
 </head>
 
-<body class="font-cabin bg-slate-50">
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 w-full h-16 bg-white shadow-lg z-50 border-b border-slate-200">
-        <div class="flex items-center justify-between h-full px-6">
-            <!-- Logo & Title -->
-            <div class="flex items-center space-x-3">
-                <div class="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg">
-                    <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
-                </div>
-                <div>
-                    <h1 class="text-lg font-semibold text-slate-900">GeoDjango Map</h1>
-                    <p class="text-xs text-slate-500">Mapping Dashboard</p>
-                </div>
+<body class="font-cabin bg-slate-50">    <!-- Left Navigation Panel -->
+    <div class="fixed top-3 left-3 z-50 bg-black/80 backdrop-filter backdrop-blur-lg border-2 border-white rounded-2xl p-6 max-w-xs">
+        <div class="flex items-center space-x-4">
+            <!-- NDMA Logo -->
+            <div class="w-16 h-16 flex-shrink-0">
+                <img src="{% static 'images/ndma-logo.png' %}" 
+                     alt="NDMA Logo" 
+                     class="w-full h-full object-contain logo-spin">
             </div>
-            
-            <!-- User Info & Actions -->
-            <div class="flex items-center space-x-4">
-                <!-- User Welcome -->
-                <div class="flex items-center space-x-2 text-sm">
-                    <div class="flex items-center justify-center w-8 h-8 bg-primary-100 rounded-full">
-                        <i data-lucide="user" class="w-4 h-4 text-primary-600"></i>
-                    </div>
-                    <span class="text-slate-700 font-medium">
-                        Welcome, {{ user.first_name|default:user.username }}!
-                    </span>
-                </div>
-                
-                <!-- Logout Button -->
-                <a href="{% url 'logout' %}" 
-                   class="inline-flex items-center px-3 py-2 border border-slate-300 rounded-lg text-sm font-medium text-slate-700 bg-white hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200">
-                    <i data-lucide="log-out" class="w-4 h-4 mr-1"></i>
-                    Logout
-                </a>
+              <!-- Title Text -->
+            <div class="text-left flex-1">
+                <h1 class="text-lg font-bold text-white leading-tight">National Common</h1>
+                <h1 class="text-lg font-bold text-white leading-tight">Operating Picture</h1>
+                <p class="text-xs text-gray-300 mt-1">(NCOP)</p>
             </div>
         </div>
-    </nav>    <!-- Map Container -->
+    </div>
+
+    <!-- User Info Panel (Top Right) -->
+    <div id="userPanel" class="fixed top-20 right-6 z-40 bg-black/80 backdrop-filter backdrop-blur-lg border-2 border-white rounded-xl p-4 min-w-[200px] transform transition-all duration-300 translate-x-full opacity-0">
+        <div class="flex items-center space-x-3 mb-3">
+            <div class="flex items-center justify-center w-10 h-10 bg-white/20 rounded-full">
+                <i data-lucide="user" class="w-5 h-5 text-white"></i>
+            </div>
+            <div>
+                <p class="text-white font-medium text-sm">{{ user.first_name|default:user.username }}</p>
+                <p class="text-gray-300 text-xs">Dashboard User</p>
+            </div>
+        </div>
+        
+        <!-- Logout Button -->
+        <a href="{% url 'logout' %}" 
+           class="w-full flex items-center justify-center px-3 py-2 bg-red-500/80 hover:bg-red-500 rounded-lg text-sm font-medium text-white transition-colors duration-200">
+            <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>
+            Logout
+        </a>
+    </div><!-- Map Container -->
     <div id="map"></div>
     
     <!-- Pass Django variables to JavaScript -->
