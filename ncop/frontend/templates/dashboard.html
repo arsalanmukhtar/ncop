@@ -116,7 +116,33 @@
             <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>
             Logout
         </a>
-    </div><!-- Map Container -->
+    </div>
+
+    <!-- Sidebar Panel -->
+    <div id="sidebarPanel" class="sidebar-panel">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Menu</h2>
+            <button id="sidebarCloseBtn" class="sidebar-close-btn" title="Close Menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-content" id="sidebarContent">
+            <!-- Accordion content will be dynamically loaded here -->
+            <div class="sidebar-accordion">
+                <div class="accordion-header" data-accordion="sample">
+                    <h3 class="accordion-title">Sample Accordion</h3>
+                    <i data-lucide="chevron-down" class="accordion-icon"></i>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        This is a sample accordion. Content will be loaded from JSON configuration.
+                    </div>
+                </div>
+            </div>
+        </div>    </div>
+
+    <!-- Map Container -->
     <div id="map"></div>
       <!-- Pass Django variables to JavaScript -->
     <script>

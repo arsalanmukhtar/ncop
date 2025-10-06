@@ -35,7 +35,7 @@ function initializeDashboard() {
     // Update last login timestamp
     if (storage) {
         storage.updateLastLogin();
-    }// Add custom navigation controls
+    }    // Add custom navigation controls
     addCustomNavigationControls(map);
     
     // Add custom user info button
@@ -43,6 +43,9 @@ function initializeDashboard() {
     
     // Add custom basemap control
     addCustomBasemapButton(map);
+    
+    // Add custom sidebar menu
+    addCustomSidebarMenu();
       // Map load event
     map.on('load', function() {
         console.log('Map loaded successfully');
@@ -338,6 +341,84 @@ function initializeDashboard() {
             });
             observer.observe(userPanel, { attributes: true });
         }    }
+    
+    // Custom Sidebar Menu
+    function addCustomSidebarMenu() {
+        const mapContainer = document.getElementById('map');
+        
+        // Create menu button container
+        const menuContainer = document.createElement('div');
+        menuContainer.className = 'custom-menu-control';
+        menuContainer.innerHTML = `
+            <button id="menuToggle" class="custom-menu-btn" title="Open Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        `;
+        
+        mapContainer.appendChild(menuContainer);
+        
+        // Reinitialize Lucide icons
+        lucide.createIcons();        // Get references to sidebar elements
+        const menuToggle = document.getElementById('menuToggle');
+        const menuControlDiv = menuContainer; // Reference to the created menu container
+        const sidebarPanel = document.getElementById('sidebarPanel');
+        const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+          // Function to open sidebar
+        function openSidebar() {
+            sidebarPanel.classList.add('visible');
+            menuControlDiv.classList.add('hidden'); // Hide menu button
+        }
+        
+        // Function to close sidebar
+        function closeSidebar() {
+            sidebarPanel.classList.remove('visible');
+            menuControlDiv.classList.remove('hidden'); // Show menu button
+        }
+        
+        // Event listeners
+        menuToggle.addEventListener('click', function(event) {
+            event.stopPropagation();
+            openSidebar();
+        });
+          sidebarCloseBtn.addEventListener('click', function() {
+            closeSidebar();
+        });
+        
+        // Close sidebar on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && sidebarPanel.classList.contains('visible')) {
+                closeSidebar();
+            }
+        });
+        
+        // Handle accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const accordionContent = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+                
+                // Close all other accordions
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== this) {
+                        otherHeader.classList.remove('active');
+                        otherHeader.nextElementSibling.classList.remove('expanded');
+                    }
+                });
+                
+                // Toggle current accordion
+                if (isActive) {
+                    this.classList.remove('active');
+                    accordionContent.classList.remove('expanded');
+                } else {
+                    this.classList.add('active');
+                    accordionContent.classList.add('expanded');
+                }
+            });
+        });
+        
+        console.log('📋 Sidebar menu initialized');
+    }
     
     console.log('Dashboard loaded with localStorage integration');
 }
