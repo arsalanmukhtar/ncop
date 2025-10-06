@@ -118,11 +118,15 @@
         </a>
     </div><!-- Map Container -->
     <div id="map"></div>
-    
-    <!-- Pass Django variables to JavaScript -->
+      <!-- Pass Django variables to JavaScript -->
     <script>
         window.MAPBOX_ACCESS_TOKEN = "{{ mapbox_token|escapejs }}";
+        window.USER_ID = "{{ user.id|escapejs }}";
+        window.USERNAME = "{{ user.username|escapejs }}";
     </script>
+    
+    <!-- Local Storage Manager -->
+    <script src="{% static 'js/local-storage-manager.js' %}"></script>
     
     <!-- Dashboard JavaScript -->
     <script src="{% static 'js/dashboard.js' %}"></script>

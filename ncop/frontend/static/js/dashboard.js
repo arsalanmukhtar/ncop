@@ -1,21 +1,41 @@
 // Dashboard Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Lucide icons
-    lucide.createIcons();    // Set Mapbox access token from Django settings
+    lucide.createIcons();
+    
+    // Wait for storage manager to be ready
+    setTimeout(() => {
+        initializeDashboard();
+    }, 100);
+});
+
+function initializeDashboard() {
+    // Set Mapbox access token from Django settings
     if (!window.MAPBOX_ACCESS_TOKEN) {
         console.error('Mapbox access token not found. Please check your environment configuration.');
         return;
     }
     mapboxgl.accessToken = window.MAPBOX_ACCESS_TOKEN;
     
-    // Initialize map
+    // Get saved settings
+    const storage = window.ncop_storage;
+    const savedStyle = storage ? storage.getMapStyle() : 'streets-v12';
+    const savedCenter = storage ? storage.getSetting('mapCenter') : [74.3, 31.5];
+    const savedZoom = storage ? storage.getSetting('mapZoom') : 6;
+    
+    // Initialize map with saved settings
     const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v12',
-        center: [74.3, 31.5], // Pakistan coordinates
-        zoom: 6,
+        style: `mapbox://styles/mapbox/${savedStyle}`,
+        center: savedCenter,
+        zoom: savedZoom,
         projection: 'mercator'
-    });    // Add custom navigation controls
+    });
+    
+    // Update last login timestamp
+    if (storage) {
+        storage.updateLastLogin();
+    }// Add custom navigation controls
     addCustomNavigationControls(map);
     
     // Add custom user info button
@@ -23,16 +43,53 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add custom basemap control
     addCustomBasemapButton(map);
-    
-    // Map load event
+      // Map load event
     map.on('load', function() {
         console.log('Map loaded successfully');
+        
+        // Restore saved map state
+        if (storage) {
+            const savedBearing = storage.getSetting('mapBearing');
+            const savedPitch = storage.getSetting('mapPitch');
+            
+            if (savedBearing !== null || savedPitch !== null) {
+                map.setBearing(savedBearing || 0);
+                map.setPitch(savedPitch || 0);
+            }
+            
+            // Restore labels state
+            const labelsEnabled = storage.getLabelsState();
+            if (!labelsEnabled) {
+                setTimeout(() => {
+                    toggleMapLabels(map, false);
+                }, 1000);
+            }
+        }
+    });
+    
+    // Save map state when it changes
+    map.on('moveend', function() {
+        if (storage) {
+            storage.saveMapState(map);
+        }
     });
     
     // Handle map errors
     map.on('error', function(e) {
         console.error('Map error:', e);
-    });    // Custom Navigation Controls
+    });
+    
+    // Function to toggle map labels
+    function toggleMapLabels(map, enabled) {
+        const style = map.getStyle();
+        if (style && style.layers) {
+            style.layers.forEach(layer => {
+                if (layer.type === 'symbol' && layer.layout && layer.layout['text-field']) {
+                    map.setLayoutProperty(layer.id, 'visibility', enabled ? 'visible' : 'none');
+                }
+            });
+        }
+    }// Custom Navigation Controls
     function addCustomNavigationControls(map) {
         const mapContainer = document.getElementById('map');
         
@@ -155,21 +212,21 @@ document.addEventListener('DOMContentLoaded', function() {
             { id: 'navigation-day-v1', name: 'Navigation Day', emoji: '🗺️' },
             { id: 'navigation-night-v1', name: 'Navigation Night', emoji: '🌃' }
         ];
-        
-        let currentStyle = 'streets-v12';
-        let labelsEnabled = true;
+          // Get saved settings
+        const storage = window.ncop_storage;
+        let currentStyle = storage ? storage.getMapStyle() : 'streets-v12';
+        let labelsEnabled = storage ? storage.getLabelsState() : true;
         
         // Create basemap controls container
         const basemapContainer = document.createElement('div');
-        basemapContainer.className = 'custom-basemap-control';
-        basemapContainer.innerHTML = `
+        basemapContainer.className = 'custom-basemap-control';        basemapContainer.innerHTML = `
             <button id="basemapToggle" class="custom-basemap-btn" title="Change Basemap">
                 <i data-lucide="layers"></i>
             </button>
             <div id="basemapPanel" class="basemap-panel">
                 <div class="labels-toggle">
                     <span class="labels-toggle-text">Show Labels</span>
-                    <div class="toggle-switch active" id="labelsToggle">
+                    <div class="toggle-switch ${labelsEnabled ? 'active' : ''}" id="labelsToggle">
                         <div class="toggle-slider"></div>
                     </div>
                 </div>
@@ -201,21 +258,18 @@ document.addEventListener('DOMContentLoaded', function() {
             event.stopPropagation();
             basemapPanel.classList.toggle('visible');
         });
-        
-        // Handle labels toggle
+          // Handle labels toggle
         labelsToggle.addEventListener('click', function() {
             labelsEnabled = !labelsEnabled;
             labelsToggle.classList.toggle('active', labelsEnabled);
             
-            // Toggle labels visibility on the map
-            const style = map.getStyle();
-            const layers = style.layers;
+            // Save labels state
+            if (storage) {
+                storage.saveLabelsState(labelsEnabled);
+            }
             
-            layers.forEach(layer => {
-                if (layer.type === 'symbol' && layer.layout && layer.layout['text-field']) {
-                    map.setLayoutProperty(layer.id, 'visibility', labelsEnabled ? 'visible' : 'none');
-                }
-            });
+            // Toggle labels visibility on the map
+            toggleMapLabels(map, labelsEnabled);
         });
         
         // Handle basemap selection
@@ -229,10 +283,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     item.classList.remove('active');
                 });
                 basemapItem.classList.add('active');
-                
-                // Change map style
+                  // Change map style
                 map.setStyle(`mapbox://styles/mapbox/${newStyle}`);
                 currentStyle = newStyle;
+                
+                // Save map style
+                if (storage) {
+                    storage.saveMapStyle(newStyle);
+                }
                 
                 // Close panel
                 basemapPanel.classList.remove('visible');
@@ -240,14 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Reapply labels setting after style loads
                 map.once('styledata', function() {
                     if (!labelsEnabled) {
-                        const style = map.getStyle();
-                        const layers = style.layers;
-                        
-                        layers.forEach(layer => {
-                            if (layer.type === 'symbol' && layer.layout && layer.layout['text-field']) {
-                                map.setLayoutProperty(layer.id, 'visibility', 'none');
-                            }
-                        });
+                        toggleMapLabels(map, false);
                     }
                 });
             }
@@ -286,8 +337,120 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
             observer.observe(userPanel, { attributes: true });
+        }    }
+    
+    console.log('Dashboard loaded with localStorage integration');
+}
+
+// Utility functions for storage management
+window.ncop_utils = {
+    // Export user settings
+    exportSettings: function() {
+        if (window.ncop_storage) {
+            const data = window.ncop_storage.exportSettings();
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ncop-settings-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            
+            URL.revokeObjectURL(url);
+            console.log('📥 Settings exported');
+        }
+    },
+    
+    // Import user settings
+    importSettings: function() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        
+        input.onchange = function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const jsonData = e.target.result;
+                    if (window.ncop_storage && window.ncop_storage.importSettings(jsonData)) {
+                        alert('Settings imported successfully! Please refresh the page.');
+                    } else {
+                        alert('Failed to import settings. Please check the file format.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        };
+        
+        input.click();
+    },
+    
+    // Clear all user data
+    clearAllData: function() {
+        if (confirm('Are you sure you want to clear all saved data? This cannot be undone.')) {
+            if (window.ncop_storage) {
+                window.ncop_storage.clearUserData();
+                alert('All data cleared! Please refresh the page.');
+            }
+        }
+    },
+    
+    // Show storage info
+    showStorageInfo: function() {
+        if (window.ncop_storage) {
+            const info = window.ncop_storage.getStorageInfo();
+            console.table(info);
+            
+            const message = `
+Storage Information:
+- Total Keys: ${info.totalKeys}
+- Total Size: ${info.sizeKB} KB
+- Max Size: ${info.maxSize}
+- User: ${window.USERNAME || 'Guest'}
+            `;
+            
+            alert(message);
+        }
+    },
+    
+    // Reset to defaults
+    resetToDefaults: function() {
+        if (confirm('Reset all settings to defaults? This will clear your preferences.')) {
+            if (window.ncop_storage) {
+                window.ncop_storage.clearUserData();
+                window.ncop_storage.initializeUserSettings();
+                alert('Settings reset to defaults! Please refresh the page.');
+            }
         }
     }
+};
+
+// Add keyboard shortcuts for power users
+document.addEventListener('keydown', function(e) {
+    // Ctrl+Shift+E: Export settings
+    if (e.ctrlKey && e.shiftKey && e.key === 'E') {
+        e.preventDefault();
+        window.ncop_utils.exportSettings();
+    }
     
-    console.log('Dashboard loaded');
+    // Ctrl+Shift+I: Import settings
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        window.ncop_utils.importSettings();
+    }
+    
+    // Ctrl+Shift+D: Show storage info
+    if (e.ctrlKey && e.shiftKey && e.key === 'D') {
+        e.preventDefault();
+        window.ncop_utils.showStorageInfo();
+    }
 });
+
+console.log('🔧 NCOP Utilities loaded. Available commands:');
+console.log('- ncop_utils.exportSettings()');
+console.log('- ncop_utils.importSettings()'); 
+console.log('- ncop_utils.clearAllData()');
+console.log('- ncop_utils.showStorageInfo()');
+console.log('- ncop_utils.resetToDefaults()');
+console.log('Keyboard shortcuts: Ctrl+Shift+E (export), Ctrl+Shift+I (import), Ctrl+Shift+D (info)');
