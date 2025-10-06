@@ -1,4 +1,50 @@
 /* Auth Base Styles */
+
+/* Universal Scrollbar Styling */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(70, 178, 255, 0.4) rgba(255, 255, 255, 0.1);
+}
+
+/* Webkit Scrollbar (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(70, 178, 255, 0.4);
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(70, 178, 255, 0.6);
+}
+
+*::-webkit-scrollbar-corner {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Remove scrollbar arrows/buttons */
+*::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Global Font Application */
+* {
+    font-family: 'Cabin', sans-serif !important;
+}
+
+html, body {
+    font-family: 'Cabin', sans-serif !important;
+}
+
 .auth-background {
     background-image: url('../images/background.jpg');
     background-size: cover;

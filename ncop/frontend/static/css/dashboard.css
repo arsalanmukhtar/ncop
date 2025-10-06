@@ -1,4 +1,50 @@
 /* Dashboard Page Specific Styles */
+
+/* Universal Scrollbar Styling */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(70, 178, 255, 0.4) rgba(255, 255, 255, 0.1);
+}
+
+/* Webkit Scrollbar (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(70, 178, 255, 0.4);
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(70, 178, 255, 0.6);
+}
+
+*::-webkit-scrollbar-corner {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Remove scrollbar arrows/buttons */
+*::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Global Font Application */
+* {
+    font-family: 'Cabin', sans-serif !important;
+}
+
+html, body {
+    font-family: 'Cabin', sans-serif !important;
+}
+
 .dashboard-nav {
     background-color: var(--primary-600);
     border-bottom: 1px solid var(--primary-700);
@@ -30,6 +76,242 @@
 #map {
     width: 100%;
     height: calc(100vh - 80px); /* Adjust based on nav height */
+}
+
+/* Custom Mapbox Navigation Controls */
+.custom-nav-control {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.custom-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 4px;
+}
+
+.custom-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.custom-nav-btn:active {
+    transform: scale(0.95);
+}
+
+.custom-nav-btn i {
+    width: 14px;
+    height: 14px;
+}
+
+/* Custom User Control */
+.custom-user-control {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.custom-user-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 4px;
+}
+
+.custom-user-btn:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.custom-user-btn i {
+    width: 14px;
+    height: 14px;
+}
+
+/* Custom Basemap Control */
+.custom-basemap-control {
+    position: absolute;
+    top: 52px; /* Below user button (32px + 10px margin + 10px gap) */
+    right: 10px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.custom-basemap-control.panel-open {
+    transform: translateY(122px); /* Adjust based on user panel height */
+}
+
+.custom-basemap-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 4px;
+    margin-bottom: 8px;
+}
+
+.custom-basemap-btn:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.custom-basemap-btn i {
+    width: 14px;
+    height: 14px;
+}
+
+/* Basemap Panel */
+.basemap-panel {
+    position: absolute;
+    top: 42px; /* Below basemap button */
+    right: 0;
+    width: 250px;
+    max-height: 400px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    backdrop-filter: blur(15px);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+}
+
+.basemap-panel.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Labels Toggle */
+.labels-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.labels-toggle-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggle-switch.active {
+    background: #46b2ff;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.toggle-switch.active .toggle-slider {
+    transform: translateX(20px);
+}
+
+/* Basemap List */
+.basemap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.basemap-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.basemap-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.basemap-item.active {
+    background: rgba(70, 178, 255, 0.2);
+    border-color: #46b2ff;
+}
+
+.basemap-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.basemap-name {
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Hide default Mapbox controls */
+.mapboxgl-ctrl-group {
+    display: none !important;
+}
+
+.mapboxgl-ctrl-top-right {
+    display: none !important;
+}
+
+.mapboxgl-ctrl-bottom-right {
+    display: none !important;
 }
 
 /* Responsive adjustments */
