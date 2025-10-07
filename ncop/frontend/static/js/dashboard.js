@@ -16,19 +16,19 @@ function initializeDashboard() {
         return;
     }
     mapboxgl.accessToken = window.MAPBOX_ACCESS_TOKEN;
-    
-    // Get saved settings
+      // Get saved settings
     const storage = window.ncop_storage;
     const savedStyle = storage ? storage.getMapStyle() : 'streets-v12';
     const savedCenter = storage ? storage.getSetting('mapCenter') : [74.3, 31.5];
     const savedZoom = storage ? storage.getSetting('mapZoom') : 6;
+    const savedProjection = storage ? storage.getSetting('mapProjection') : 'mercator';
       // Initialize map with saved settings
     const map = new mapboxgl.Map({
         container: 'map',
         style: `mapbox://styles/mapbox/${savedStyle}`,
         center: savedCenter,
         zoom: savedZoom,
-        projection: 'mercator',
+        projection: savedProjection || 'mercator',
         hash: true
     });
     
@@ -37,6 +37,9 @@ function initializeDashboard() {
         storage.updateLastLogin();
     }    // Add custom navigation controls
     addCustomNavigationControls(map);
+    
+    // Create projection panel
+    createProjectionPanel(map);
     
     // Add custom user info button
     addCustomUserButton();
@@ -48,16 +51,30 @@ function initializeDashboard() {
     addCustomSidebarMenu();
       // Map load event
     map.on('load', function() {
-        console.log('Map loaded successfully');
-        
-        // Restore saved map state
+        console.log('Map loaded successfully');        // Restore saved map state
         if (storage) {
             const savedBearing = storage.getSetting('mapBearing');
             const savedPitch = storage.getSetting('mapPitch');
+            const savedProjection = storage.getSetting('mapProjection');
+            const savedTerrain = storage.getSetting('terrainEnabled');
             
             if (savedBearing !== null || savedPitch !== null) {
                 map.setBearing(savedBearing || 0);
                 map.setPitch(savedPitch || 0);
+            }
+            
+            // Restore projection
+            if (savedProjection && savedProjection !== 'mercator') {
+                setTimeout(() => {
+                    changeMapProjection(map, savedProjection);
+                }, 500);
+            }
+            
+            // Restore terrain state
+            if (savedTerrain) {
+                setTimeout(() => {
+                    restoreTerrainState(map, savedTerrain);
+                }, 800);
             }
             
             // Restore labels state
@@ -98,8 +115,7 @@ function initializeDashboard() {
         
         // Create navigation controls container
         const navContainer = document.createElement('div');
-        navContainer.className = 'custom-nav-control';
-        navContainer.innerHTML = `
+        navContainer.className = 'custom-nav-control';        navContainer.innerHTML = `
             <button id="zoomIn" class="custom-nav-btn" title="Zoom In">
                 <i data-lucide="plus"></i>
             </button>
@@ -108,6 +124,10 @@ function initializeDashboard() {
             </button>
             <button id="resetBearing" class="custom-nav-btn" title="Reset Bearing">
                 <i data-lucide="compass"></i>
+            </button>            <button id="toggle3D" class="custom-nav-btn" title="Switch to 3D View (2D Mode)">
+                <span class="nav-text">3D</span>
+            </button><button id="projectionSwitch" class="custom-nav-btn" title="Map Projections">
+                <i data-lucide="earth"></i>
             </button>
             <button id="locate" class="custom-nav-btn" title="Find My Location">
                 <i data-lucide="map-pin"></i>
@@ -125,20 +145,130 @@ function initializeDashboard() {
         document.getElementById('zoomOut').addEventListener('click', () => {
             map.zoomOut({ duration: 300 });
         });
-        
-        document.getElementById('resetBearing').addEventListener('click', () => {
+          document.getElementById('resetBearing').addEventListener('click', () => {
             map.easeTo({ 
                 bearing: 0, 
                 pitch: 0, 
                 duration: 500 
             });
-        });          document.getElementById('locate').addEventListener('click', () => {
+        });        // 2D/3D Toggle Button with Terrain
+        const toggle3DButton = document.getElementById('toggle3D');
+        toggle3DButton.addEventListener('click', () => {
+            // Get current terrain state
+            const currentTerrain = window.ncop_storage ? window.ncop_storage.getSetting('terrainEnabled') : false;
+            const newTerrainState = !currentTerrain;
+            
+            console.log('🔄 Terrain toggle clicked. Current state:', currentTerrain, '-> New state:', newTerrainState);
+            
+            if (newTerrainState) {
+                // Enable 3D terrain mode
+                console.log('🏔️ Enabling 3D Terrain mode...');
+                
+                // Check if source already exists before adding
+                if (!map.getSource('mapbox-dem')) {
+                    try {
+                        map.addSource('mapbox-dem', {
+                            'type': 'raster-dem',
+                            'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+                            'tileSize': 512,
+                            'maxzoom': 14
+                        });
+                    } catch (error) {
+                        console.warn('Error adding terrain source:', error);
+                    }
+                }
+                
+                // Add terrain layer
+                try {
+                    map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+                } catch (error) {
+                    console.warn('Error setting terrain:', error);
+                }
+                
+                // Set 3D view parameters
+                map.easeTo({
+                    pitch: 80,
+                    bearing: -17.6,
+                    duration: 1000
+                });                // Update button appearance for 3D mode
+                setTimeout(() => {
+                    const button = document.getElementById('toggle3D');
+                    if (button) {
+                        button.title = 'Switch to 2D View (3D Mode)';
+                        button.classList.add('terrain-active');
+                    }
+                }, 200);
+                
+                console.log('🏔️ 3D Terrain mode enabled');
+            } else {
+                // Disable 3D terrain mode
+                console.log('🗺️ Switching to 2D mode...');
+                
+                // Remove terrain first
+                try {
+                    map.setTerrain(null);
+                } catch (error) {
+                    console.warn('Error removing terrain:', error);
+                }
+                
+                // Wait for terrain to be removed before removing source
+                setTimeout(() => {
+                    try {
+                        if (map.getSource('mapbox-dem')) {
+                            map.removeSource('mapbox-dem');
+                        }
+                    } catch (error) {
+                        console.warn('Error removing terrain source:', error);
+                    }
+                }, 200);
+                
+                // Get current projection from storage or default to mercator
+                const currentProjection = window.ncop_storage ? 
+                    window.ncop_storage.getSetting('mapProjection') || 'mercator' : 'mercator';
+                
+                // Return to 2D view with current projection
+                map.easeTo({
+                    pitch: 0,
+                    bearing: 0,
+                    duration: 1000
+                });
+                
+                // Ensure projection is maintained after animation
+                setTimeout(() => {
+                    try {
+                        map.setProjection(currentProjection);
+                        console.log('🌍 Projection restored to:', currentProjection);
+                    } catch (error) {
+                        console.warn('Error setting projection:', error);
+                        map.setProjection('mercator');
+                    }
+                }, 1200);                // Update button appearance for 2D mode
+                setTimeout(() => {
+                    const button = document.getElementById('toggle3D');
+                    if (button) {
+                        button.title = 'Switch to 3D View (2D Mode)';
+                        button.classList.remove('terrain-active');
+                    }
+                }, 200);
+                
+                console.log('🗺️ 2D mode enabled with projection:', currentProjection);
+            }
+            
+            // Save terrain state
+            if (window.ncop_storage) {
+                window.ncop_storage.saveSetting('terrainEnabled', newTerrainState);
+            }
+        });
+
+        // Projection Switch Button
+        document.getElementById('projectionSwitch').addEventListener('click', () => {
+            toggleProjectionPanel();
+        });document.getElementById('locate').addEventListener('click', () => {
             // Zoom to specific coordinates: Islamabad, Pakistan
             const targetCoords = [73.09896723226383, 33.681421388232];
-            
-            map.flyTo({
+              map.flyTo({
                 center: targetCoords,
-                zoom: 17,
+                zoom: 14,
                 duration: 2000
             });
             
@@ -147,8 +277,185 @@ function initializeDashboard() {
                 .setLngLat(targetCoords)
                 .addTo(map);
                 
-            console.log('🎯 Zoomed to target location:', targetCoords);
+            console.log('🎯 Zoomed to target location:', targetCoords);        });
+    }
+
+    // Projection Panel Functions
+    function createProjectionPanel(map) {
+        const mapContainer = document.getElementById('map');
+        
+        // Create projection panel
+        const projectionPanel = document.createElement('div');
+        projectionPanel.id = 'projectionPanel';
+        projectionPanel.className = 'projection-panel';
+        projectionPanel.innerHTML = `
+            <div class="projection-header">
+                <h3>Map Projections</h3>
+                <button id="projectionClose" class="projection-close-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="projection-list">
+                <div class="projection-item active" data-projection="mercator">
+                    <div class="projection-preview">🌍</div>
+                    <div class="projection-info">
+                        <div class="projection-name">Mercator</div>
+                        <div class="projection-desc">Standard web map projection</div>
+                    </div>
+                </div>
+                <div class="projection-item" data-projection="globe">
+                    <div class="projection-preview">🌐</div>
+                    <div class="projection-info">
+                        <div class="projection-name">Globe</div>
+                        <div class="projection-desc">3D globe view</div>
+                    </div>
+                </div>
+                <div class="projection-item" data-projection="albers">
+                    <div class="projection-preview">🗺️</div>
+                    <div class="projection-info">
+                        <div class="projection-name">Albers</div>
+                        <div class="projection-desc">Equal-area conic projection</div>
+                    </div>
+                </div>
+                <div class="projection-item" data-projection="equalEarth">
+                    <div class="projection-preview">🌎</div>
+                    <div class="projection-info">
+                        <div class="projection-name">Equal Earth</div>
+                        <div class="projection-desc">Equal-area pseudocylindrical</div>
+                    </div>
+                </div>
+                <div class="projection-item" data-projection="naturalEarth">
+                    <div class="projection-preview">🌏</div>
+                    <div class="projection-info">
+                        <div class="projection-name">Natural Earth</div>
+                        <div class="projection-desc">Compromise pseudocylindrical</div>
+                    </div>
+                </div>
+                <div class="projection-item" data-projection="winkelTripel">
+                    <div class="projection-preview">🗺️</div>
+                    <div class="projection-info">
+                        <div class="projection-name">Winkel Tripel</div>
+                        <div class="projection-desc">Modified azimuthal projection</div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Position it near the navigation controls
+        const navControl = document.querySelector('.custom-nav-control');
+        mapContainer.appendChild(projectionPanel);
+        
+        // Reinitialize Lucide icons
+        lucide.createIcons();
+        
+        // Add event listeners
+        document.getElementById('projectionClose').addEventListener('click', () => {
+            projectionPanel.classList.remove('visible');
         });
+          // Handle projection selection
+        document.querySelectorAll('.projection-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const projection = item.dataset.projection;
+                changeMapProjection(map, projection);
+                
+                // Update active state
+                document.querySelectorAll('.projection-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                
+                // Close panel after selection
+                setTimeout(() => {
+                    projectionPanel.classList.remove('visible');
+                }, 500);
+            });
+        });
+          // Update active projection indicator when panel is opened
+        window.updateActiveProjection = function() {
+            const currentProjection = window.ncop_storage ? 
+                window.ncop_storage.getSetting('mapProjection') || 'mercator' : 'mercator';
+            
+            document.querySelectorAll('.projection-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.projection === currentProjection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Close panel when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!projectionPanel.contains(event.target) && 
+                !document.getElementById('projectionSwitch').contains(event.target)) {
+                projectionPanel.classList.remove('visible');
+            }
+        });
+    }    function toggleProjectionPanel() {
+        const panel = document.getElementById('projectionPanel');
+        if (panel) {
+            if (!panel.classList.contains('visible')) {
+                // Update active projection before showing panel
+                if (window.updateActiveProjection) {
+                    window.updateActiveProjection();
+                }
+            }
+            panel.classList.toggle('visible');
+        }
+    }
+      function changeMapProjection(map, projectionName) {
+        try {
+            map.setProjection(projectionName);
+            console.log(`🌍 Changed projection to: ${projectionName}`);
+            
+            // Save projection preference
+            if (window.ncop_storage) {
+                window.ncop_storage.saveSetting('mapProjection', projectionName);
+            }
+        } catch (error) {
+            console.error('Error changing projection:', error);
+            // Fallback to mercator if projection is not supported
+            map.setProjection('mercator');
+        }
+    }      function restoreTerrainState(map, terrainEnabled) {
+        if (terrainEnabled) {
+            // Check if source already exists before adding
+            if (!map.getSource('mapbox-dem')) {
+                try {
+                    // Add terrain source
+                    map.addSource('mapbox-dem', {
+                        'type': 'raster-dem',
+                        'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+                        'tileSize': 512,
+                        'maxzoom': 14
+                    });
+                } catch (error) {
+                    console.warn('Error adding terrain source:', error);
+                }
+            }
+            
+            // Enable terrain
+            try {
+                map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+            } catch (error) {
+                console.warn('Error setting terrain:', error);
+            }            // Update button state for 3D mode
+            setTimeout(() => {
+                const button = document.getElementById('toggle3D');
+                if (button) {
+                    button.title = 'Switch to 2D View (3D Mode)';
+                    button.classList.add('terrain-active');
+                }
+            }, 100);
+            
+            console.log('🏔️ Terrain state restored: enabled');        } else {            // Update button state for 2D mode
+            setTimeout(() => {
+                const button = document.getElementById('toggle3D');
+                if (button) {
+                    button.title = 'Switch to 3D View (2D Mode)';
+                    button.classList.remove('terrain-active');
+                }
+            }, 100);
+            
+            console.log('🗺️ Terrain state restored: disabled');
+        }
     }
 
     // Custom User Button
