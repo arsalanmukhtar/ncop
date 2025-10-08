@@ -108,14 +108,19 @@ function initializeDashboard() {
                     map.setLayoutProperty(layer.id, 'visibility', enabled ? 'visible' : 'none');
                 }
             });
-        }
-    }// Custom Navigation Controls
+        }    }// Custom Navigation Controls
     function addCustomNavigationControls(map) {
         const mapContainer = document.getElementById('map');
         
+        // Create main navigation wrapper
+        const navWrapper = document.createElement('div');
+        navWrapper.className = 'nav-controls-wrapper';
+        
         // Create navigation controls container
         const navContainer = document.createElement('div');
-        navContainer.className = 'custom-nav-control';        navContainer.innerHTML = `
+        navContainer.className = 'custom-nav-control';
+        navContainer.id = 'navControlsContainer';
+          navContainer.innerHTML = `
             <button id="zoomIn" class="custom-nav-btn" title="Zoom In">
                 <i data-lucide="plus"></i>
             </button>
@@ -124,18 +129,50 @@ function initializeDashboard() {
             </button>
             <button id="resetBearing" class="custom-nav-btn" title="Reset Bearing">
                 <i data-lucide="compass"></i>
-            </button>            <button id="toggle3D" class="custom-nav-btn" title="Switch to 3D View (2D Mode)">
-                <span class="nav-text">3D</span>
-            </button><button id="projectionSwitch" class="custom-nav-btn" title="Map Projections">
-                <i data-lucide="earth"></i>
             </button>
-            <button id="locate" class="custom-nav-btn" title="Find My Location">
+            <button id="toggle3D" class="custom-nav-btn" title="Switch to 3D View (2D Mode)">
+                <span class="nav-text">3D</span>
+            </button>
+            <button id="projectionSwitch" class="custom-nav-btn" title="Map Projections">
+                <i data-lucide="earth"></i>
+            </button>            <button id="locate" class="custom-nav-btn" title="Find My Location">
                 <i data-lucide="map-pin"></i>
             </button>
+            <button id="homeExtent" class="custom-nav-btn" title="Zoom to Pakistan">
+                <i data-lucide="house"></i>
+            </button>
+            <button id="navToggleBtn" class="nav-toggle-btn" title="Toggle Navigation Controls">
+                <i data-lucide="chevron-left"></i>
+            </button>
         `;
-          mapContainer.appendChild(navContainer);
-          // Reinitialize Lucide icons
+        
+        // Append container to wrapper and wrapper to map
+        navWrapper.appendChild(navContainer);
+        mapContainer.appendChild(navWrapper);// Reinitialize Lucide icons
         lucide.createIcons();
+          // Add toggle functionality
+        const navToggleBtn = document.getElementById('navToggleBtn');
+        const navControlsContainer = document.getElementById('navControlsContainer');
+          navToggleBtn.addEventListener('click', () => {
+            const isCollapsed = navControlsContainer.classList.contains('collapsed');
+            const toggleIcon = navToggleBtn.querySelector('i');
+            
+            if (isCollapsed) {
+                // Expanding - show chevron-left
+                navControlsContainer.classList.remove('collapsed');
+                if (toggleIcon) {
+                    toggleIcon.setAttribute('data-lucide', 'chevron-left');
+                    lucide.createIcons(); // Reinitialize icon immediately
+                }
+            } else {
+                // Collapsing - show chevron-right  
+                navControlsContainer.classList.add('collapsed');
+                if (toggleIcon) {
+                    toggleIcon.setAttribute('data-lucide', 'chevron-right');
+                    lucide.createIcons(); // Reinitialize icon immediately
+                }
+            }
+        });
         
         // Add event listeners for navigation buttons
         document.getElementById('zoomIn').addEventListener('click', () => {
@@ -263,7 +300,7 @@ function initializeDashboard() {
         // Projection Switch Button
         document.getElementById('projectionSwitch').addEventListener('click', () => {
             toggleProjectionPanel();
-        });document.getElementById('locate').addEventListener('click', () => {
+        });        document.getElementById('locate').addEventListener('click', () => {
             // Zoom to specific coordinates: Islamabad, Pakistan
             const targetCoords = [73.09896723226383, 33.681421388232];
               map.flyTo({
@@ -278,6 +315,20 @@ function initializeDashboard() {
                 .addTo(map);
                 
             console.log('🎯 Zoomed to target location:', targetCoords);        });
+
+        // Home Extent Button
+        document.getElementById('homeExtent').addEventListener('click', () => {
+            // Fly to Pakistan extent
+            const pakistanCenter = [69.3451, 30.3753]; // Center of Pakistan
+            map.flyTo({
+                center: pakistanCenter,
+                zoom: 5,
+                duration: 2000,
+                essential: true
+            });
+            
+            console.log('🏠 Zoomed to Pakistan extent');
+        });
     }
 
     // Projection Panel Functions
@@ -1000,28 +1051,48 @@ function initializeDashboard() {
     function createNCOPCategorySection(categoryKey, categoryData) {
         const sectionDiv = document.createElement('div');
         sectionDiv.className = 'accordion-item';
-        
-        // Map category keys to display names and icons
+          // Map category keys to display names and icons
         const categoryConfig = {
-            'gis_layers': { title: 'GIS Layers', icon: 'layers' },
-            'weather': { title: 'Weather Systems', icon: 'cloud' },
-            'flood': { title: 'Flood Monitoring', icon: 'waves' },
-            'air_quality': { title: 'Air Quality', icon: 'wind' },
-            'ocean/coastal': { title: 'Ocean & Coastal', icon: 'anchor' },
-            'Disaster Early Warning (DEW)': { title: 'Early Warning', icon: 'alert-triangle' }
+          gis_layers: {
+            title: "GIS Layers",
+            icon: "layers",
+            customIcon: "/static/icons/accordion_icons/gis-layers.webp",
+          },
+          weather: {
+            title: "Weather Systems",
+            icon: "cloud",
+            customIcon: "/static/icons/accordion_icons/weather-systems.webp",
+          },
+          flood: {
+            title: "Flood Monitoring",
+            icon: "waves",
+            customIcon: "/static/icons/accordion_icons/flood.webp",
+          },
+          air_quality: { title: "Air Quality", icon: "wind", customIcon: "/static/icons/accordion_icons/air-quality.webp" },
+          "ocean/coastal": { title: "Ocean & Coastal", icon: "anchor", customIcon: "/static/icons/accordion_icons/ocean-coastal.webp" },
+          "Disaster Early Warning (DEW)": {
+            title: "Early Warning",
+            icon: "alert-triangle",
+            customIcon: "/static/icons/accordion_icons/early-warning.webp",
+          },
         };
         
         const config = categoryConfig[categoryKey] || { 
             title: categoryKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()), 
             icon: 'folder' 
         };
-        
-        // Create header
+          // Create header
         const header = document.createElement('div');
         header.className = 'accordion-header';
+        
+        // Use custom icon for GIS layers, Lucide icon for others
+        const iconHtml = config.customIcon 
+            ? `<img src="${config.customIcon}" alt="${config.title}" class="accordion-custom-icon">`
+            : `<i data-lucide="${config.icon}" class="accordion-icon"></i>`;
+            
         header.innerHTML = `
-            <i data-lucide="${config.icon}"></i>
-            <span>${config.title}</span>
+            ${iconHtml}
+            <span class="accordion-title">${config.title}</span>
             <i data-lucide="chevron-down" class="accordion-chevron"></i>
         `;
         

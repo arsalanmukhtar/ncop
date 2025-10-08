@@ -78,12 +78,50 @@ html, body {
     height: calc(100vh - 80px); /* Adjust based on nav height */
 }
 
-/* Custom Mapbox Navigation Controls */
-.custom-nav-control {
+.ncop-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 265px;
+    backdrop-filter: blur(15px);
+    
+}
+
+/* Navigation Controls Wrapper */
+.nav-controls-wrapper {
     position: absolute;
     bottom: 10px;
     right: 10px;
     z-index: 1000;
+}
+
+/* Custom Navigation Controls Container */
+.custom-nav-control {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 4px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    transform-origin: bottom right;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Hide navigation buttons when collapsed */
+.custom-nav-control.collapsed .custom-nav-btn:not(.nav-toggle-btn) {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    margin-bottom: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+/* Adjust container when collapsed */
+.custom-nav-control.collapsed {
+    padding: 4px;
 }
 
 .custom-nav-btn {
@@ -95,9 +133,9 @@ html, body {
     background: rgba(255, 255, 255, 0.6);
     border: none;
     border-radius: 6px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease, height 0.2s ease, margin 0.2s ease, padding 0.2s ease;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(0, 0, 0, 0.1);
     padding: 4px;
@@ -128,6 +166,48 @@ html, body {
     font-weight: bold;
     line-height: 1;
     letter-spacing: 0.5px;
+}
+
+/* Navigation Toggle Button */
+.nav-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 0;
+    color: #ffffff;
+}
+
+.nav-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-toggle-btn i {
+    width: 16px;
+    height: 16px;
+    color: white;
+}
+
+/* Home Button Styling - Light Green Background */
+button#homeExtent.custom-nav-btn {
+    background: rgba(34, 197, 94, 0.8) !important; /* Light green (green-500 with opacity) */
+    color: white !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+button#homeExtent.custom-nav-btn:hover {
+    background: rgba(34, 197, 94, 0.9) !important; /* Darker green on hover */
+    color: white !important;
 }
 
 /* 3D Toggle Button Active State */
@@ -204,19 +284,20 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.3);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     padding: 4px;
 }
 
 .custom-menu-btn:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
     transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .custom-menu-btn i {
@@ -229,12 +310,12 @@ button.custom-nav-btn.terrain-active:hover {
     position: fixed;
     top: 140px;
     left: 12px;
-    width: 380px;
+    width: 265px;
     height: calc(100vh - 130px - 3rem);
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid rgba(255, 255, 255, 1);
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(15px);
     transform: translateX(-100%);
     opacity: 0;
     transition: all 0.2s ease;
@@ -425,7 +506,7 @@ button.custom-nav-btn.terrain-active:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 15px;
+    padding: 2px 15px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     cursor: pointer;
@@ -440,7 +521,7 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .accordion-header.active {
-    background: rgba(70, 178, 255, 0.2);
+    background: linear-gradient(to right, #258bd4, #46b2ff);
     border-color: #46b2ff;
 }
 
@@ -449,6 +530,7 @@ button.custom-nav-btn.terrain-active:hover {
     font-weight: 500;
     margin: 0;
     color: white;
+    flex: 1;
 }
 
 .accordion-icon {
@@ -505,7 +587,7 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .ncop-subcategory-header.expanded {
-    background: rgba(70, 178, 255, 0.15);
+    background: rgba(70, 178, 255, 0.5);
     border-left-color: #46b2ff;
 }
 
@@ -681,7 +763,7 @@ button.custom-nav-btn.terrain-active:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 15px;
+    padding: 2px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     cursor: pointer;
@@ -696,29 +778,39 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .accordion-header.active {
-    background: rgba(70, 178, 255, 0.2);
+    background: linear-gradient(to right, #258bd4, #46b2ff);
     border-color: #46b2ff;
 }
 
-.accordion-header i:first-child {
+.accordion-header i:first-child,
+.accordion-header .accordion-icon {
     width: 16px;
     height: 16px;
-    margin-right: 10px;
+    margin-right: 12px;
     color: #46b2ff;
 }
 
-.accordion-header span {
+/* Custom accordion icon for GIS layers */
+.accordion-header .accordion-custom-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.accordion-header .accordion-title {
     flex: 1;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: white;
 }
 
 .accordion-chevron {
-    width: 14px;
-    height: 14px;
+    width: 20px;
+    height: 20px;
     color: rgba(255, 255, 255, 0.6);
     transition: transform 0.2s ease;
+    margin-right: 4px;
 }
 
 .accordion-header.active .accordion-chevron {
@@ -736,7 +828,7 @@ button.custom-nav-btn.terrain-active:hover {
 
 .accordion-content.expanded {
     max-height: 600px;
-    padding: 12px;
+    padding: 5px;
 }
 
 /* Custom Basemap Control */
