@@ -614,13 +614,12 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .ncop-subcategory-header:hover {
-    background: var(--accent-bg-red);
-    border: 1px solid var(--ndma-red);
+    background: var(--ndma-blue-gradient);
+    border: 1px solid var(--ndma-blue);
 }
 
 .ncop-subcategory-header.expanded {
-    background: var(--ndma-red-gradient);
-    border: 1px solid var(--ndma-red);
+    border: 1px solid var(--ndma-blue);
 }
 
 .ncop-subcategory-header .subcategory-chevron {
@@ -645,7 +644,6 @@ button.custom-nav-btn.terrain-active:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    margin-left: 12px;
     margin-top: 4px;
 }
 
@@ -662,11 +660,10 @@ button.custom-nav-btn.terrain-active:hover {
     padding: 6px 8px;
     border: 1px solid var(--border-dark);
     transition: all 0.2s ease;
-    min-height: 48px;
 }
 
 .ncop-item:hover {
-    background: var(--primary-bg);
+    background: var(--ndma-green);
 }
 
 .ncop-item-image {

@@ -8,16 +8,26 @@ export class SidebarMenu {
     #sidebarPanel;
     #menuControlDiv;
     #accordionContainer;
-    #storage = window.ncop_storage;
-
-    constructor() {
+    #storage = window.ncop_storage;    constructor() {
+        console.log("🚀 SidebarMenu constructor called");
+        
         this.renderButton();
+        console.log("✅ Button rendered");
+        
         this.#sidebarPanel = document.getElementById("sidebarPanel");
+        console.log("🔍 Sidebar panel:", this.#sidebarPanel);
+        
         this.#accordionContainer = this.#sidebarPanel?.querySelector(
             ".accordion-container"
         );
+        console.log("🔍 Accordion container:", this.#accordionContainer);
+        
         this.loadSidebarConfig();
+        console.log("✅ Config loading started");
+        
         this.addEventListeners();
+        console.log("✅ Event listeners added");
+        
         console.log("📋 Sidebar menu initialized");
     }
 
@@ -64,17 +74,26 @@ export class SidebarMenu {
     }
 
     // --- Configuration Loading and Population ---
-
-    async loadSidebarConfig() {
+      async loadSidebarConfig() {
         try {
-            const response = await fetch("/static/data/ncop_menu.json");
-            const menuData = await response.json();
+            console.log("🔍 Starting to import map-layers.js...");
+            
+            // Import the menu configuration from map-layers.js
+            const { ncop_menu_items } = await import('./map-layers.js');
+            
+            console.log("📋 Import successful! Menu configuration:", ncop_menu_items);
+            console.log("📋 Available categories:", Object.keys(ncop_menu_items || {}));
 
-            if (menuData) {
-                this.#populateNCOPSidebar(menuData);
+            if (ncop_menu_items && Object.keys(ncop_menu_items).length > 0) {
+                console.log("✅ Starting sidebar population...");
+                this.#populateNCOPSidebar(ncop_menu_items);
+            } else {
+                console.warn("⚠️ ncop_menu_items is empty or undefined, using basic sidebar");
+                this.#createBasicSidebar();
             }
         } catch (error) {
-            console.error("Error loading NCOP menu configuration:", error);
+            console.error("❌ Error loading NCOP menu configuration:", error);
+            console.error("❌ Error details:", error.message, error.stack);
             this.#createBasicSidebar();
         }
     }
@@ -182,15 +201,89 @@ export class SidebarMenu {
 
         const subcategoryHeader = document.createElement("div");
         subcategoryHeader.className = "ncop-subcategory-header";
-        subcategoryHeader.innerHTML = `<span>${subcategoryKey}</span><i data-lucide="chevron-right" class="subcategory-chevron"></i>`;
-
-        const itemsContainer = document.createElement("div");
+        subcategoryHeader.innerHTML = `<span>${subcategoryKey}</span><i data-lucide="chevron-right" class="subcategory-chevron"></i>`;        const itemsContainer = document.createElement("div");
         itemsContainer.className = "ncop-items-container";
-
-        Object.keys(subcategoryData).forEach((itemKey) => {
-            itemsContainer.appendChild(
-                this.#createNCOPItem(subcategoryData[itemKey], itemKey)
-            );
+        
+        // --- Render items by type: toggle, temporal, dropdown, button ---
+        console.log(`🔍 Rendering subcategory: ${subcategoryKey}`, subcategoryData);
+        
+        Object.keys(subcategoryData).forEach((typeKey) => {
+            const items = subcategoryData[typeKey];
+            console.log(`🔍 Processing type: ${typeKey}`, items);
+            
+            // --- TOGGLE CASE ---
+            // JSON: { toggle: { itemKey: { label: ... }, ... } }
+            // HTML: label + switch
+            if (typeKey === "toggle") {
+                console.log(`✅ Creating toggle items for ${typeKey}:`, Object.keys(items));
+                Object.keys(items).forEach((itemKey) => {
+                    console.log(`🔍 Creating toggle item: ${itemKey}`, items[itemKey]);
+                    const toggleElement = this.#createToggleItem(itemKey, items[itemKey]);
+                    if (toggleElement) {
+                        console.log(`✅ Created toggle element:`, toggleElement);
+                        itemsContainer.appendChild(toggleElement);
+                    } else {
+                        console.error(`❌ Failed to create toggle element for ${itemKey}`);
+                    }
+                });
+            }
+            // --- TEMPORAL CASE ---
+            // JSON: { temporal: { itemKey: { label: ..., image: ... }, ... } }
+            // HTML: 2-col grid, image + label
+            else if (typeKey === "temporal") {
+                console.log(`✅ Creating temporal items for ${typeKey}:`, Object.keys(items));
+                const grid = document.createElement("div");
+                grid.className = "grid grid-cols-2 gap-2";
+                Object.keys(items).forEach((itemKey) => {
+                    console.log(`🔍 Creating temporal item: ${itemKey}`, items[itemKey]);
+                    const temporalElement = this.#createTemporalItem(itemKey, items[itemKey]);
+                    if (temporalElement) {
+                        console.log(`✅ Created temporal element:`, temporalElement);
+                        grid.appendChild(temporalElement);
+                    } else {
+                        console.error(`❌ Failed to create temporal element for ${itemKey}`);
+                    }
+                });
+                itemsContainer.appendChild(grid);
+            }
+            // --- DROPDOWN CASE ---
+            // JSON: { dropdown: { endpoint: ..., key: ..., attribute: ... } }
+            // HTML: async select, populated from endpoint
+            // Only dropdowns use endpoint/key/attribute
+            else if (typeKey === "dropdown") {
+                console.log(`✅ Creating dropdown item for ${typeKey}:`, items);
+                const dropdownElement = this.#createDropdownItem(typeKey, items);
+                if (dropdownElement) {
+                    console.log(`✅ Created dropdown element:`, dropdownElement);
+                    itemsContainer.appendChild(dropdownElement);
+                } else {
+                    console.error(`❌ Failed to create dropdown element for ${typeKey}`);
+                }
+            }
+            // --- BUTTON CASE ---
+            // JSON: { button: { itemKey: { label: ..., color: ..., outline: ... }, ... } }
+            // HTML: colored, rounded button grid
+            else if (typeKey === "button") {
+                console.log(`✅ Creating button items for ${typeKey}:`, Object.keys(items));
+                const grid = document.createElement("div");
+                grid.className = "grid grid-cols-2 gap-1";
+                Object.keys(items).forEach((itemKey) => {
+                    console.log(`🔍 Creating button item: ${itemKey}`, items[itemKey]);
+                    const buttonElement = this.#createButtonItem(itemKey, items[itemKey]);
+                    if (buttonElement) {
+                        console.log(`✅ Created button element:`, buttonElement);
+                        grid.appendChild(buttonElement);
+                    } else {
+                        console.error(`❌ Failed to create button element for ${itemKey}`);
+                    }
+                });
+                itemsContainer.appendChild(grid);
+            }
+            // --- OTHER CASES ---
+            // If new types are added in map-layers.js, add their logic here.
+            else {
+                console.warn(`⚠️ Unknown item type: ${typeKey}`, items);
+            }
         });
 
         subcategoryHeader.addEventListener("click", function () {
@@ -217,63 +310,119 @@ export class SidebarMenu {
         });
 
         subcategoryDiv.appendChild(subcategoryHeader);
-        subcategoryDiv.appendChild(itemsContainer);
-        return subcategoryDiv;
+        subcategoryDiv.appendChild(itemsContainer);        return subcategoryDiv;
     }
 
-    #createNCOPItem(itemData, itemKey) {
+    #createToggleItem(itemKey, itemData) {
+        console.log(`🔧 Creating toggle item: ${itemKey}`, itemData);
+        
+        if (!itemData || !itemData.label) {
+            console.error(`❌ Invalid toggle item data for ${itemKey}:`, itemData);
+            return null;
+        }
+        
         const itemDiv = document.createElement("div");
-        itemDiv.className = "ncop-item";
-
-        let controlHTML = "";
-        if (itemData.type === "toggle") {
-            controlHTML = `<label class="ncop-toggle"><input type="checkbox" data-endpoint="${itemData.endpoint}" data-item-key="${itemKey}"><span class="ncop-toggle-slider"></span></label>`;
-        } else if (itemData.type === "dropdown") {
-            // Simplified dropdown options for this refactoring example
-            controlHTML = `
-                <select class="ncop-dropdown" data-endpoint="${itemData.endpoint}" data-item-key="${itemKey}">
-                    <option value="">Select Option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            `;
-        }
-
+        itemDiv.className = "ncop-item flex justify-between items-center p-2";
         itemDiv.innerHTML = `
-            ${itemData.image && itemData.image.trim() !== ""
-                ? `<div class="ncop-item-image"><img src="${itemData.image}" alt="${itemData.label}" loading="lazy"></div>`
-                : ""
-            }
-            <div class="ncop-item-content">
-                <div class="ncop-item-label">${itemData.label}</div>
-                <div class="ncop-item-control">${controlHTML}</div>
-            </div>
+            <span class="ncop-item-label">${itemData.label}</span>
+            <label class="ncop-toggle">
+                <input type="checkbox" data-item-key="${itemKey}">
+                <span class="ncop-toggle-slider"></span>
+            </label>
         `;
+        
+        console.log(`✅ Toggle item created successfully:`, itemDiv);        return itemDiv;
+    }
 
-        const toggleInput = itemDiv.querySelector('input[type="checkbox"]');
-        const dropdownSelect = itemDiv.querySelector("select");
-
-        if (toggleInput) {
-            toggleInput.addEventListener("change", (e) =>
-                this.#handleNCOPToggle(
-                    e.target.dataset.endpoint,
-                    e.target.dataset.itemKey,
-                    e.target.checked
-                )
-            );
+    #createTemporalItem(itemKey, itemData) {
+        console.log(`🔧 Creating temporal item: ${itemKey}`, itemData);
+        
+        if (!itemData || !itemData.label) {
+            console.error(`❌ Invalid temporal item data for ${itemKey}:`, itemData);
+            return null;
         }
+        
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "ncop-item flex flex-col items-center justify-center p-2 text-center";
+        itemDiv.innerHTML = `
+            <div class="ncop-item-image w-full h-20 mb-2">
+                <img src="${itemData.image || '/static/images/placeholder.png'}" alt="${itemData.label}" class="w-full h-full object-cover rounded-md" />
+            </div>
+            <span class="ncop-item-label text-xs text-gray-300">${itemData.label}</span>
+        `;
+        
+        console.log(`✅ Temporal item created successfully:`, itemDiv);        return itemDiv;
+    }
 
-        if (dropdownSelect) {
-            dropdownSelect.addEventListener("change", (e) =>
-                this.#handleNCOPDropdown(
-                    e.target.dataset.endpoint,
-                    e.target.dataset.itemKey,
-                    e.target.value
-                )
-            );
+    #createDropdownItem(itemKey, itemData) {
+        console.log(`🔧 Creating dropdown item: ${itemKey}`, itemData);
+        
+        if (!itemData) {
+            console.error(`❌ Invalid dropdown item data for ${itemKey}:`, itemData);
+            return null;
         }
+        
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "ncop-item p-2";
+        // For dropdown, endpoint/key/attribute are at the dropdown object level, not inside children
+        const endpoint = itemData.endpoint || "";
+        const keyField = itemData.key || "id";
+        const attributeField = itemData.attribute || "label";
+        
+        console.log(`🔍 Dropdown config - endpoint: ${endpoint}, key: ${keyField}, attribute: ${attributeField}`);
+        
+        itemDiv.innerHTML = `
+            <select class="ncop-dropdown w-full bg-gray-700 border border-gray-600 text-white text-sm rounded-lg p-2.5" data-endpoint="${endpoint}" data-key-field="${keyField}" data-attribute-field="${attributeField}" data-item-key="${itemKey}">
+                <option selected>Loading...</option>
+            </select>
+        `;
+        // Fetch and populate dropdown options asynchronously
+        setTimeout(() => {
+            const select = itemDiv.querySelector("select");
+            if (!endpoint) {
+                console.warn(`⚠️ No endpoint provided for dropdown ${itemKey}`);
+                select.innerHTML = `<option selected disabled>No endpoint</option>`;
+                return;
+            }
+            
+            console.log(`📡 Fetching dropdown data from: ${endpoint}`);
+            fetch(endpoint)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(`📊 Dropdown data for ${itemKey}:`, data);
+                    select.innerHTML = `<option selected disabled>Select an option</option>`;
+                    data.forEach((row) => {
+                        console.log(`🔍 Processing row:`, row);
+                        const value = row[keyField];
+                        const label = row[attributeField];
+                        console.log(`✅ Value: ${value}, Label: ${label}`);
+                        select.innerHTML += `<option value="${value}">${label}</option>`;
+                    });
+                })
+                .catch((err) => {
+                    console.error(`❌ Dropdown fetch error for ${itemKey}:`, err);
+                    select.innerHTML = `<option selected disabled>Error loading data</option>`;
+                });
+        }, 0);
+        
+        console.log(`✅ Dropdown item created successfully:`, itemDiv);        return itemDiv;
+    }
 
+    #createButtonItem(itemKey, itemData) {
+        console.log(`🔧 Creating button item: ${itemKey}`, itemData);
+        
+        if (!itemData || !itemData.label) {
+            console.error(`❌ Invalid button item data for ${itemKey}:`, itemData);
+            return null;
+        }
+        
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "ncop-item w-full text-white font-bold py-2 px-4 rounded-md border-2 cursor-pointer";
+        itemDiv.style.backgroundColor = itemData.color || "#6366f1";
+        itemDiv.style.borderColor = itemData.outline || "#4f46e5";
+        itemDiv.innerHTML = `${itemData.label}`;
+        
+        console.log(`✅ Button item created successfully:`, itemDiv);
         return itemDiv;
     }
 
