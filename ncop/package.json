@@ -1,0 +1,19 @@
+{
+  "name": "ncop",
+  "version": "1.0.0",
+  "description": "NCOP Project Frontend Build",
+  "scripts": {
+    "start": "parcel watch frontend/src/dashboard.js --public-url /static/js/ --dist-dir frontend/static/js",
+    "build": "parcel build frontend/src/dashboard.js --public-url /static/js/ --dist-dir frontend/static/js"
+  },
+  "keywords": [
+    "geodjango",
+    "javascript",
+    "modules"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}

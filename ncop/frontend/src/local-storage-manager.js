@@ -301,14 +301,4 @@ class NCOPStorageManager {
     }
 }
 
-// Global instance
-window.ncop_storage = null;
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    if (NCOPStorageManager.isAvailable()) {
-        window.ncop_storage = new NCOPStorageManager();
-    } else {
-        console.warn('⚠️ LocalStorage not available - user preferences will not be saved');
-    }
-});
+export default NCOPStorageManager;

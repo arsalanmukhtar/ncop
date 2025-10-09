@@ -7,24 +7,19 @@
     <title>NCOP</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
-    <!-- Mapbox -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet" />
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-    <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
 
-    <!-- Dashboard Styles -->
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 
     <script>
@@ -91,15 +86,13 @@
     </style>
 </head>
 
-<body class="font-inter bg-slate-50"> <!-- Left Navigation Panel -->
+<body class="font-inter bg-slate-50">
     <div class="ncop-container fixed top-3 left-3 z-50 border-2 rounded-2xl px-2 py-6">
         <div class="flex items-center space-x-4">
-            <!-- NDMA Logo -->
             <div class="w-16 h-16 flex-shrink-0">
                 <img src="{% static 'images/bg_images/ndma-logo.png' %}" alt="NDMA Logo"
                     class="w-full h-full object-contain logo-spin">
             </div>
-            <!-- Title Text -->
             <div class="text-left flex-1">
                 <h1 class="text-lg font-normal text-white leading-tight">National Common Operating Picture<span
                         class="text-gray-300 mt-1"> (NCOP)</span></h1>
@@ -107,7 +100,6 @@
         </div>
     </div>
 
-    <!-- User Info Panel (Top Right) -->
     <div id="userPanel"
         class="fixed top-12 right-2 z-40 bg-black/80 backdrop-filter backdrop-blur-lg border-2 border-white rounded-xl p-4 min-w-[200px] transform transition-all duration-300 translate-x-full opacity-0">
         <div class="flex items-center space-x-3 mb-3">
@@ -120,13 +112,12 @@
             </div>
         </div>
 
-        <!-- Logout Button -->
         <a href="{% url 'logout' %}"
             class="w-full flex items-center justify-center px-3 py-2 bg-red-500/80 hover:bg-red-500 rounded-lg text-sm font-medium text-white transition-colors duration-200">
             <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>
             Logout
         </a>
-    </div> <!-- Sidebar Panel -->
+    </div>
     <div id="sidebarPanel" class="sidebar-panel border-2">
         <div class="sidebar-header">
             <div class="sidebar-search-container">
@@ -143,27 +134,19 @@
             </button>
         </div>
         <div class="sidebar-content" id="sidebarContent">
-            <!-- Accordion content will be dynamically loaded here -->
             <div class="accordion-container">
-                <!-- NCOP menu items will be loaded here from ncop_menu.json -->
             </div>
         </div>
     </div>
 
-    <!-- Map Container -->
     <div id="map"></div>
-    <!-- Pass Django variables to JavaScript -->
     <script>
         window.MAPBOX_ACCESS_TOKEN = "{{ mapbox_token|escapejs }}";
         window.USER_ID = "{{ user.id|escapejs }}";
         window.USERNAME = "{{ user.username|escapejs }}";
     </script>
 
-    <!-- Local Storage Manager -->
-    <script src="{% static 'js/local-storage-manager.js' %}"></script>
-
-    <!-- Dashboard JavaScript -->
-    <script src="{% static 'js/dashboard.js' %}"></script>
+    <script **type="module" ** src="{% static 'js/dashboard.js' %}"></script>
 </body>
 
 </html>

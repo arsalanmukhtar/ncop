@@ -88,3 +88,7 @@ coverage.xml
 # Backup files
 *.bak
 *.backup
+
+# Node modules
+node_modules/
+.parcel-cache/
