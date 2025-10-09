@@ -17,11 +17,11 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-    <!-- Cabin Font -->
+    <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
 
     <!-- Dashboard Styles -->
@@ -32,7 +32,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'cabin': ['Cabin', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
                     },
                     colors: {
                         primary: {
@@ -91,8 +91,8 @@
     </style>
 </head>
 
-<body class="font-cabin bg-slate-50"> <!-- Left Navigation Panel -->
-    <div class="ncop-container fixed top-3 left-3 z-50 border-2 border-white rounded-2xl px-2 py-5">
+<body class="font-inter bg-slate-50"> <!-- Left Navigation Panel -->
+    <div class="ncop-container fixed top-3 left-3 z-50 border-2 rounded-2xl px-2 py-6">
         <div class="flex items-center space-x-4">
             <!-- NDMA Logo -->
             <div class="w-16 h-16 flex-shrink-0">
@@ -101,7 +101,7 @@
             </div>
             <!-- Title Text -->
             <div class="text-left flex-1">
-                <h1 class="text-xl font-normal text-white leading-tight">National Common Operating Picture<span
+                <h1 class="text-lg font-normal text-white leading-tight">National Common Operating Picture<span
                         class="text-gray-300 mt-1"> (NCOP)</span></h1>
             </div>
         </div>
@@ -127,9 +127,8 @@
             Logout
         </a>
     </div> <!-- Sidebar Panel -->
-    <div id="sidebarPanel" class="sidebar-panel border-white border-2">
+    <div id="sidebarPanel" class="sidebar-panel border-2">
         <div class="sidebar-header">
-            <h2 class="sidebar-title">Menu</h2>
             <div class="sidebar-search-container">
                 <div class="search-input-wrapper">
                     <i data-lucide="search" class="search-icon"></i>

@@ -1,76 +1,141 @@
 /* Dashboard Page Specific Styles */
 
-/* Universal Scrollbar Styling */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(70, 178, 255, 0.4) rgba(255, 255, 255, 0.1);
+/* Variables */
+:root {
+    /* ===========================
+       BRAND COLORS (NDMA)
+    =========================== */
+    --ndma-green: #2ecc71;
+    --ndma-green-opaque: rgba(9, 106, 11, 0.75);
+    --ndma-green-light: rgba(9, 106, 11, 0.35);
+    --ndma-green-glow: rgba(9, 106, 11, 0.25);
+    --ndma-green-gradient: linear-gradient(to right, rgba(28, 169, 30, 0.6), rgba(9, 106, 11, 0.9));
+
+    --ndma-blue: #46b2ff;
+    --ndma-blue-opaque: rgba(70, 178, 255, 0.75);
+    --ndma-blue-light: rgba(70, 178, 255, 0.35);
+    --ndma-blue-glow: rgba(70, 178, 255, 0.25);
+    --ndma-blue-gradient: linear-gradient(to right, rgba(70, 178, 255, 0.9), rgba(30, 144, 255, 0.6));
+
+    --ndma-red: #ff0000;
+    --ndma-red-opaque: rgba(255, 0, 0, 0.75);
+    --ndma-red-light: rgba(255, 0, 0, 0.35);
+    --ndma-red-glow: rgba(255, 0, 0, 0.25);
+    --ndma-red-gradient: linear-gradient(to right, rgba(255, 76, 76, 0.7), rgba(255, 0, 0, 0.9));
+
+    /* ===========================
+       BASE COLORS (GLASSMORPHIC)
+    =========================== */
+    --black: #000000;
+    --white: #ffffff;
+
+    /* Glass-like layered tones */
+    --glass-dark: rgba(0, 0, 0, 0.6);
+    --glass-medium: rgba(0, 0, 0, 0.4);
+    --glass-light: rgba(255, 255, 255, 0.2);
+    --glass-lighter: rgba(255, 255, 255, 0.15);
+    --glass-highlight: rgba(255, 255, 255, 0.25);
+
+    /* ===========================
+       BACKGROUNDS
+    =========================== */
+    --primary-bg: var(--glass-dark);
+    --secondary-bg: var(--glass-medium);
+    --tertiary-bg: var(--glass-light);
+    --accent-bg-green: var(--ndma-green-opaque);
+    --accent-bg-blue: var(--ndma-blue-opaque);
+    --accent-bg-red: var(--ndma-red-opaque);
+    --overlay-bg: rgba(255, 255, 255, 0.05);
+    --frost-bg: rgba(255, 255, 255, 0.12);
+
+    /* ===========================
+       TEXT COLORS
+    =========================== */
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.75);
+    --text-muted: rgba(255, 255, 255, 0.55);
+    --text-inverse: rgba(0, 0, 0, 0.85);
+    --text-accent-green: var(--ndma-green);
+    --text-accent-blue: var(--ndma-blue);
+    --text-accent-red: var(--ndma-red);
+
+    /* ===========================
+       BORDERS (SUBTLE & TRANSLUCENT)
+    =========================== */
+    --border-dark: rgba(255, 255, 255, 0.2);
+    --border-light: rgba(255, 255, 255, 0.7);
+    --border-strong: rgba(0, 0, 0, 0.2);
+    --border-green: var(--ndma-green-light);
+    --border-blue: var(--ndma-blue-light);
+    --border-red: var(--ndma-red-light);
+
+    /* ===========================
+       BUTTONS & STATES
+    =========================== */
+    --btn-green-bg: var(--ndma-green-opaque);
+    --btn-green-hover: var(--ndma-green-gradient);
+    --btn-blue-bg: var(--ndma-blue-opaque);
+    --btn-blue-hover: var(--ndma-blue-gradient);
+    --btn-red-bg: var(--ndma-red-opaque);
+    --btn-red-hover: var(--ndma-red-gradient);
+
+    /* ===========================
+       HIGHLIGHTS / FEEDBACK
+    =========================== */
+    --focus-ring: var(--ndma-blue-light);
+    --hover-bg: rgba(255, 255, 255, 0.08);
+    --active-bg: rgba(255, 255, 255, 0.12);
+    --success-bg: var(--ndma-green-glow);
+    --error-bg: var(--ndma-red-glow);
+    --info-bg: var(--ndma-blue-glow);
+
+    /* ===========================
+       SHADOWS / DEPTH
+    =========================== */
+    --shadow-soft: 0 8px 16px rgba(0, 0, 0, 0.25);
+    --shadow-glow-green: 0 0 12px 2px var(--ndma-green-glow);
+    --shadow-glow-blue: 0 0 12px 2px var(--ndma-blue-glow);
+    --shadow-glow-red: 0 0 12px 2px var(--ndma-red-glow);
 }
 
-/* Webkit Scrollbar (Chrome, Safari, Edge) */
+/* Universal Scrollbar Styling */
+* {
+    scrollbar-width: none;
+    /* Firefox — hide thumb entirely */
+}
+
+/* Chrome, Safari, Edge */
 *::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
 }
 
 *::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
+    background: var(--glass-light);
+    border-radius: 10px;
 }
 
+/* Hide scrollbar thumb completely */
 *::-webkit-scrollbar-thumb {
-    background: rgba(70, 178, 255, 0.4);
-    border-radius: 3px;
-    transition: background 0.3s ease;
+    background: transparent;
+    border: none;
 }
 
-*::-webkit-scrollbar-thumb:hover {
-    background: rgba(70, 178, 255, 0.6);
-}
-
-*::-webkit-scrollbar-corner {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Remove scrollbar arrows/buttons */
+/* Hide scrollbar corner and buttons */
+*::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
     display: none;
 }
 
 /* Global Font Application */
 * {
-    font-family: 'Cabin', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
 }
 
 html, body {
-    font-family: 'Cabin', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
 }
 
-.dashboard-nav {
-    background-color: var(--primary-600);
-    border-bottom: 1px solid var(--primary-700);
-}
-
-.dashboard-nav .logo-container img {
-    animation: spin-y 3s linear infinite;
-}
-
-.dashboard-nav .welcome-text {
-    color: var(--accent-100);
-}
-
-.logout-btn {
-    background-color: white;
-    border: 1px solid #e2e8f0;
-    color: #475569;
-}
-
-.logout-btn:hover {
-    background-color: #f8fafc;
-}
-
-.logout-btn:focus {
-    border-color: var(--primary-500);
-}
 
 /* Map container */
 #map {
@@ -79,9 +144,10 @@ html, body {
 }
 
 .ncop-container {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--primary-bg);
     width: 265px;
     backdrop-filter: blur(15px);
+    border-color: var(--border-light);
     
 }
 
@@ -95,11 +161,11 @@ html, body {
 
 /* Custom Navigation Controls Container */
 .custom-nav-control {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--tertiary-bg);
     border-radius: 8px;
     padding: 4px;
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-dark);
     transition: all 0.3s ease;
     transform-origin: bottom right;
     display: flex;
@@ -130,19 +196,19 @@ html, body {
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--secondary-bg);
     border: none;
     border-radius: 6px;
     margin-bottom: 4px;
     cursor: pointer;
     transition: all 0.3s ease, height 0.2s ease, margin 0.2s ease, padding 0.2s ease;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--border-dark);
     padding: 4px;
 }
 
 .custom-nav-btn:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--primary-bg);
 }
 
 .custom-nav-btn:active {
@@ -175,21 +241,19 @@ html, body {
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--primary-bg);
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-light);
     margin-bottom: 0;
-    color: #ffffff;
+    color: var(--text-primary);
 }
 
 .nav-toggle-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
-    transform: scale(1.05);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: var(--accent-bg-red);
 }
 
 .nav-toggle-btn i {
@@ -200,25 +264,25 @@ html, body {
 
 /* Home Button Styling - Light Green Background */
 button#homeExtent.custom-nav-btn {
-    background: rgba(34, 197, 94, 0.8) !important; /* Light green (green-500 with opacity) */
-    color: white !important;
-    border-color: rgba(34, 197, 94, 0.3) !important;
+    background: var(--ndma-green) !important; /* Light green (green-500 with opacity) */
+    color: var(--text-primary) !important;
+    border-color: var(--ndma-blue-gradient) !important;
 }
 
 button#homeExtent.custom-nav-btn:hover {
-    background: rgba(34, 197, 94, 0.9) !important; /* Darker green on hover */
-    color: white !important;
+    background: var(--ndma-green-opaque) !important; /* Darker green on hover */
+    color: var(--text-primary) !important;
 }
 
 /* 3D Toggle Button Active State */
 button.custom-nav-btn.terrain-active {
-    background: rgba(70, 178, 255, 0.8) !important;
+    background: var(--ndma-blue) !important;
     color: white !important;
-    border-color: rgba(70, 178, 255, 0.3) !important;
+    border-color: var(--ndma-blue-gradient) !important;
 }
 
 button.custom-nav-btn.terrain-active:hover {
-    background: rgba(70, 178, 255, 0.9) !important;
+    background: var(--ndma-blue) !important;
 }
 
 /* Custom User Control */
@@ -235,18 +299,18 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--secondary-bg);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--border-dark);
     padding: 4px;
 }
 
 .custom-user-btn:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--primary-bg);
 }
 
 .custom-user-btn i {
@@ -284,20 +348,18 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--secondary-bg);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--border-dark);
     padding: 4px;
 }
 
 .custom-menu-btn:hover {
-    background: rgba(0, 0, 0, 0.4);
-    transform: scale(1.05);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: var(--primary-bg);
 }
 
 .custom-menu-btn i {
@@ -312,8 +374,8 @@ button.custom-nav-btn.terrain-active:hover {
     left: 12px;
     width: 265px;
     height: calc(100vh - 130px - 3rem);
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: var(--primary-bg);
+    border: 2px solid var(--border-light);
     border-radius: 16px;
     backdrop-filter: blur(15px);
     transform: translateX(-100%);
@@ -337,12 +399,12 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: space-between;
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--border-dark);
     gap: 12px;
 }
 
 .sidebar-title {
-    color: white;
+    color: var(--white);
     font-size: 18px;
     font-weight: 600;
     margin: 0;
@@ -356,7 +418,6 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 
-
 /* Search Functionality */
 .search-input-wrapper {
     position: relative;
@@ -367,21 +428,20 @@ button.custom-nav-btn.terrain-active:hover {
 
 .search-icon {
     position: absolute;
-    left: 8px;
-    width: 12px;
-    height: 12px;
-    color: rgba(255, 255, 255, 0.5);
+    width: 16px;
+    height: 16px;
+    color: var(--text-primary);
     z-index: 1;
 }
 
 .search-input {
     width: 100%;
     padding: 6px 28px 6px 28px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    border: none;
     border-radius: 4px;
-    color: white;
-    font-size: 11px;
+    color: var(--white);
+    font-size: 14px;
     font-weight: 400;
     transition: all 0.2s ease;
     height: 28px;
@@ -389,14 +449,13 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .search-input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--text-secondary);
 }
 
 .search-input:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #46b2ff;
-    box-shadow: 0 0 0 1px rgba(70, 178, 255, 0.2);
+    background: transparent;
+    /* border-color: var(--primary-foreground); */
 }
 
 .clear-search-btn {
@@ -413,23 +472,20 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: center;
 }
 
-.clear-search-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
 .clear-icon {
-    width: 10px;
-    height: 10px;
-    color: rgba(255, 255, 255, 0.6);
+    width: 8px;
+    height: 8px;
+    color: transparent;
+    visibility: hidden;
 }
 
 /* Search Results Highlighting */
-.search-highlight {
-    background: rgba(255, 255, 0, 0.3);
+/* .search-highlight {
+    background: var(--success-bg);
     border-radius: 2px;
     padding: 1px 2px;
     font-weight: 600;
-}
+} */
 
 /* Hide elements that don't match search */
 .search-hidden {
@@ -440,30 +496,24 @@ button.custom-nav-btn.terrain-active:hover {
 .no-results-message {
     text-align: center;
     padding: 3rem 1rem;
-    color: rgba(255, 255, 255, 0.7);
-    background: rgba(255, 255, 255, 0.03);
+    color: #000000;
+    background: var(--tertiary-bg);
     border-radius: 8px;
     margin: 1rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.no-results-message i {
-    width: 48px;
-    height: 48px;
-    color: rgba(255, 255, 255, 0.3);
-    margin: 0 auto 12px;
-    display: block;
+    border: 1px solid var(--border-dark);
+    color: var(--text-primary);
 }
 
 .no-results-message p {
     margin: 0 0 8px 0;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
+    color: var(--text-muted);
 }
 
 .no-results-message small {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 12px;
+    color: var(--text-primary);
+    font-size: 14px;
 }
 
 .sidebar-close-btn {
@@ -479,23 +529,22 @@ button.custom-nav-btn.terrain-active:hover {
     transition: all 0.2s ease;
     padding: 2px;
     flex-shrink: 0;
-    color: rgba(255, 0, 0, 0.4);
+    color: var(--ndma-red-light);
 }
 
 .sidebar-close-btn:hover {
-    color: rgba(255, 0, 0, 1);
+    color: var(--ndma-red);
     transform: scale(1.05);
 }
 
 .sidebar-close-btn i {
     width: 14px;
     height: 14px;
-    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Sidebar Content */
 .sidebar-content {
-    color: white;
+    color: var(--white);
 }
 
 .sidebar-accordion {
@@ -506,64 +555,47 @@ button.custom-nav-btn.terrain-active:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2px 15px;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 2px;
+    background: var(--tertiary-bg);
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 1px solid transparent;
+    border: 1px solid var(--border-dark);
     margin-bottom: 4px;
 }
 
 .accordion-header:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: var(--accent-bg-blue);
 }
 
 .accordion-header.active {
-    background: linear-gradient(to right, #258bd4, #46b2ff);
-    border-color: #46b2ff;
+    background: var(--ndma-blue-gradient);
+    border-color: var(--ndma-blue);
 }
 
 .accordion-title {
     font-size: 14px;
     font-weight: 500;
     margin: 0;
-    color: white;
+    color: var(--white);
     flex: 1;
 }
 
 .accordion-icon {
     width: 12px;
     height: 12px;
-    color: white;
+    color: var(--white);
+    font-weight: bold;
     transition: transform 0.2s ease;
-}
-
-.accordion-header.active .accordion-icon {
-    transform: rotate(180deg);
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 0 0 6px 6px;
-}
-
-.accordion-content.expanded {
-    max-height: 300px; /* Adjust as needed */
+    color: var(--text-secondary);
 }
 
 .accordion-body {
     padding: 15px;
     font-size: 13px;
     line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--glass-lighter);
 }
-
-/* Sidebar overlay - REMOVED (no overlay needed) */
 
 /* NCOP Sidebar Specific Styles */
 .ncop-subcategory {
@@ -574,41 +606,35 @@ button.custom-nav-btn.terrain-active:hover {
     display: flex;
     align-items: center;
     padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--secondary-bg);
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border-left: 3px solid transparent;
+    border: 1px solid transparent;
 }
 
 .ncop-subcategory-header:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-left-color: #46b2ff;
+    background: var(--accent-bg-red);
+    border: 1px solid var(--ndma-red);
 }
 
 .ncop-subcategory-header.expanded {
-    background: rgba(70, 178, 255, 0.5);
-    border-left-color: #46b2ff;
+    background: var(--ndma-red-gradient);
+    border: 1px solid var(--ndma-red);
 }
 
 .ncop-subcategory-header .subcategory-chevron {
-    width: 12px;
-    height: 12px;
-    color: rgba(255, 255, 255, 0.5);
+    width: 18px;
+    height: 18px;
+    color: var(--text-secondary);
+    transition: transform 0.2s ease;
 }
 
 .ncop-subcategory-header span {
     flex: 1;
     font-size: 13px;
     font-weight: 500;
-    color: white;
-}
-
-.subcategory-chevron {
-    width: 12px;
-    height: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    transition: transform 0.2s ease;
+    color: var(--white);
 }
 
 .ncop-subcategory-header.expanded .subcategory-chevron {
@@ -624,24 +650,23 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .ncop-items-container.visible {
-    max-height: 400px;
+    max-height: 500px;
 }
 
 .ncop-item {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--secondary-bg);
     border-radius: 6px;
     margin: 4px 0;
     padding: 6px 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-dark);
     transition: all 0.2s ease;
     min-height: 48px;
 }
 
 .ncop-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--primary-bg);
 }
 
 .ncop-item-image {
@@ -651,7 +676,7 @@ button.custom-nav-btn.terrain-active:hover {
     border-radius: 6px;
     overflow: hidden;
     margin-right: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid transparent;
 }
 
 .ncop-item-image img {
@@ -670,7 +695,7 @@ button.custom-nav-btn.terrain-active:hover {
 .ncop-item-label {
     font-size: 11px;
     font-weight: 500;
-    color: white;
+    color: var(--white);
     line-height: 1.2;
     flex: 1;
     margin-right: 8px;
@@ -704,10 +729,10 @@ button.custom-nav-btn.terrain-active:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--tertiary-bg);
     transition: 0.3s;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--border-dark);
 }
 
 .ncop-toggle-slider:before {
@@ -717,15 +742,15 @@ button.custom-nav-btn.terrain-active:hover {
     width: 14px;
     left: 2px;
     bottom: 2px;
-    background-color: white;
+    background-color: var(--white);
     transition: 0.3s;
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px var(--shadow-soft);
 }
 
 .ncop-toggle input:checked + .ncop-toggle-slider {
-    background-color: #46b2ff;
-    border-color: #46b2ff;
+    background-color: var(--ndma-green);
+    border-color: var(--border-dark);
 }
 
 .ncop-toggle input:checked + .ncop-toggle-slider:before {
@@ -758,37 +783,13 @@ button.custom-nav-btn.terrain-active:hover {
     padding: 4px;
 }
 
-/* Enhanced Accordion Styles for NCOP */
-.accordion-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-    margin-bottom: 4px;
-}
-
-.accordion-header:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.accordion-header.active {
-    background: linear-gradient(to right, #258bd4, #46b2ff);
-    border-color: #46b2ff;
-}
-
-.accordion-header i:first-child,
+/* .accordion-header i:first-child,
 .accordion-header .accordion-icon {
     width: 16px;
     height: 16px;
     margin-right: 12px;
     color: #46b2ff;
-}
+} */
 
 /* Custom accordion icon for GIS layers */
 .accordion-header .accordion-custom-icon {
@@ -821,14 +822,13 @@ button.custom-nav-btn.terrain-active:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    background: rgba(255, 255, 255, 0.03);
+    background: transparent;
     border-radius: 4px;
     margin-bottom: 8px;
 }
 
 .accordion-content.expanded {
     max-height: 600px;
-    padding: 5px;
 }
 
 /* Custom Basemap Control */
@@ -850,19 +850,19 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--secondary-bg);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--border-dark);
     padding: 4px;
     margin-bottom: 8px;
 }
 
 .custom-basemap-btn:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--primary-bg);
 }
 
 .custom-basemap-btn i {
@@ -877,8 +877,8 @@ button.custom-nav-btn.terrain-active:hover {
     right: 0;
     width: 250px;
     max-height: 400px;
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: var(--primary-bg);
+    border: 2px solid var(--border-light);
     border-radius: 8px;
     padding: 12px;
     backdrop-filter: blur(15px);
@@ -900,11 +900,11 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: space-between;
     padding: 8px 0;
     margin-bottom: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--border-dark);
 }
 
 .labels-toggle-text {
-    color: white;
+    color: var(--white);
     font-size: 14px;
     font-weight: 500;
 }
@@ -913,14 +913,14 @@ button.custom-nav-btn.terrain-active:hover {
     position: relative;
     width: 40px;
     height: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--primary-bg);
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 .toggle-switch.active {
-    background: #46b2ff;
+    background: var(--ndma-blue);
 }
 
 .toggle-slider {
@@ -929,7 +929,7 @@ button.custom-nav-btn.terrain-active:hover {
     left: 2px;
     width: 16px;
     height: 16px;
-    background: white;
+    background: var(--white);
     border-radius: 50%;
     transition: transform 0.3s ease;
 }
@@ -956,13 +956,13 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .basemap-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: var(--secondary-bg);
+    border-color: var(--border-dark);
 }
 
 .basemap-item.active {
-    background: rgba(70, 178, 255, 0.2);
-    border-color: #46b2ff;
+    background: var(--ndma-blue-light);
+    border-color: var(--ndma-blue);
 }
 
 .basemap-image {
@@ -970,7 +970,7 @@ button.custom-nav-btn.terrain-active:hover {
     height: 40px;
     border-radius: 4px;
     margin-right: 12px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--tertiary-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -978,7 +978,7 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .basemap-name {
-    color: white;
+    color: var(--white);
     font-size: 13px;
     font-weight: 500;
 }
@@ -990,8 +990,8 @@ button.custom-nav-btn.terrain-active:hover {
     right: 10px;
     width: 300px;
     max-height: 450px;
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: var(--primary-bg);
+    border: 2px solid var(--border-dark);
     border-radius: 12px;
     padding: 0;
     backdrop-filter: blur(15px);
@@ -1012,13 +1012,13 @@ button.custom-nav-btn.terrain-active:hover {
     align-items: center;
     justify-content: space-between;
     padding: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-dark);
+    background: var(--secondary-bg);
 }
 
 .projection-header h3 {
     margin: 0;
-    color: white;
+    color: var(--white);
     font-size: 16px;
     font-weight: 600;
 }
@@ -1034,12 +1034,12 @@ button.custom-nav-btn.terrain-active:hover {
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-muted);
 }
 
 .projection-close-btn:hover {
-    background: rgba(255, 0, 0, 0.2);
-    color: white;
+    background: var(--ndma-red-opaque);
+    color: var(--white);
 }
 
 .projection-close-btn i {
@@ -1065,13 +1065,13 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .projection-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--secondary-bg);
+    border-color: var(--border-dark);
 }
 
 .projection-item.active {
-    background: rgba(70, 178, 255, 0.2);
-    border-color: #46b2ff;
+    background: var(--ndma-blue-light);
+    border-color: var(--ndma-blue);
 }
 
 .projection-preview {
@@ -1082,7 +1082,7 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: center;
     font-size: 20px;
     margin-right: 12px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--tertiary-bg);
     border-radius: 6px;
 }
 
@@ -1091,14 +1091,14 @@ button.custom-nav-btn.terrain-active:hover {
 }
 
 .projection-name {
-    color: white;
+    color: var(--white);
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 2px;
 }
 
 .projection-desc {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-muted);
     font-size: 12px;
     line-height: 1.3;
 }

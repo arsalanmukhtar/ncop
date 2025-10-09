@@ -987,7 +987,6 @@ function initializeDashboard() {
             const noResultsDiv = document.createElement('div');
             noResultsDiv.className = 'no-results-message';
             noResultsDiv.innerHTML = `
-                <i data-lucide="search-x"></i>
                 <p>No results found</p>
                 <small>Try different keywords or check spelling</small>
             `;
