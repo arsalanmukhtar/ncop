@@ -161,11 +161,11 @@ html, body {
 
 /* Custom Navigation Controls Container */
 .custom-nav-control {
-    background: var(--tertiary-bg);
+    background: var(--primary-bg);
     border-radius: 8px;
     padding: 4px;
     backdrop-filter: blur(15px);
-    border: 1px solid var(--border-dark);
+    border: 1px solid var(--border-light);
     transition: all 0.3s ease;
     transform-origin: bottom right;
     display: flex;
@@ -196,15 +196,15 @@ html, body {
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: var(--secondary-bg);
-    border: none;
+    background: var(--tertiary-bg);
     border-radius: 6px;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     cursor: pointer;
     transition: all 0.3s ease, height 0.2s ease, margin 0.2s ease, padding 0.2s ease;
     backdrop-filter: blur(10px);
     border: 2px solid var(--border-dark);
     padding: 4px;
+    color: var(--white);
 }
 
 .custom-nav-btn:hover {
@@ -247,13 +247,13 @@ html, body {
     cursor: pointer;
     transition: all 0.2s ease;
     backdrop-filter: blur(15px);
-    border: 1px solid var(--border-light);
+    border: 2px solid var(--border-light);
     margin-bottom: 0;
     color: var(--text-primary);
 }
 
 .nav-toggle-btn:hover {
-    background: var(--accent-bg-red);
+    background: var(--accent-bg-blue);
 }
 
 .nav-toggle-btn i {
@@ -307,6 +307,7 @@ button.custom-nav-btn.terrain-active:hover {
     backdrop-filter: blur(10px);
     border: 2px solid var(--border-dark);
     padding: 4px;
+    color: var(--white);
 }
 
 .custom-user-btn:hover {
@@ -349,13 +350,13 @@ button.custom-nav-btn.terrain-active:hover {
     width: 32px;
     height: 32px;
     background: var(--secondary-bg);
-    border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     backdrop-filter: blur(15px);
     border: 2px solid var(--border-dark);
     padding: 4px;
+    color: var(--white);
 }
 
 .custom-menu-btn:hover {
@@ -383,8 +384,9 @@ button.custom-nav-btn.terrain-active:hover {
     transition: all 0.2s ease;
     z-index: 999;
     overflow-y: auto;
-    padding: 12px;
+    padding: 12px 12px 12px 12px; /* Extra bottom padding for last elements */
     box-sizing: border-box;
+    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
 .sidebar-panel.visible {
@@ -520,8 +522,8 @@ button.custom-nav-btn.terrain-active:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     background: transparent;
     border: none;
     border-radius: 4px;
@@ -529,12 +531,12 @@ button.custom-nav-btn.terrain-active:hover {
     transition: all 0.2s ease;
     padding: 2px;
     flex-shrink: 0;
-    color: var(--ndma-red-light);
+    color: var(--text-muted);
 }
 
 .sidebar-close-btn:hover {
-    color: var(--ndma-red);
-    transform: scale(1.05);
+    color: var(--white);
+    background: var(--ndma-red-opaque);
 }
 
 .sidebar-close-btn i {
@@ -599,7 +601,7 @@ button.custom-nav-btn.terrain-active:hover {
 
 /* NCOP Sidebar Specific Styles */
 .ncop-subcategory {
-    margin: 8px 0;
+    margin: 4px 0;
 }
 
 .ncop-subcategory-header {
@@ -627,6 +629,7 @@ button.custom-nav-btn.terrain-active:hover {
     height: 18px;
     color: var(--text-secondary);
     transition: transform 0.2s ease;
+    margin-left: 5px;
 }
 
 .ncop-subcategory-header span {
@@ -649,39 +652,101 @@ button.custom-nav-btn.terrain-active:hover {
 
 .ncop-items-container.visible {
     max-height: 500px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-padding-bottom: 10px;
+}
+
+.ncop-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    align-items: start;
+}
+
+/* Single column grid for button items */
+.ncop-grid:has(.ncop-item-button) {
+    grid-template-columns: 1fr;
+    gap: 0px;
 }
 
 .ncop-item {
     display: flex;
     align-items: center;
-    background: var(--secondary-bg);
-    border-radius: 6px;
+    justify-content: center;
+    /* background: var(--secondary-bg); */
+    /* border-radius: 6px; */
     margin: 4px 0;
-    padding: 6px 8px;
-    border: 1px solid var(--border-dark);
+    padding: 8px;
+    /* border: 2px solid var(--border-dark); */
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 
-.ncop-item:hover {
-    background: var(--ndma-green);
+/* Toggle items - horizontal layout with label and control */
+.ncop-item-toggle {
+    justify-content: space-between;
+}
+
+/* Temporal items - vertical layout centered */
+.ncop-item-temporal {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 8px;
+    min-height: 120px;
+}
+
+/* Dropdown items - centered single element */
+.ncop-item-dropdown {
+    justify-content: center;
+}
+
+/* Button items - text left, toggle right */
+.ncop-item-button {
+    justify-content: space-between;
+    border-radius: 5px;
+    border: 1px solid transparent !important;
+    background-color: transparent !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Button with checked toggle - full color background */
+/* .ncop-item-button:has(.ncop-toggle input:checked) {
+    border: 1px solid var(--button-color, #6366f1) !important;
+} */
+
+/* Toggle inside button items - full opacity background when checked */
+.ncop-item-button .ncop-toggle input:checked + .ncop-toggle-slider {
+    background-color: var(--button-color, #6366f1) !important;
 }
 
 .ncop-item-image {
     flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
-    margin-right: 12px;
+    border-radius: 15px;
     border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ncop-item-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid transparent;
+    transition: border-color 0.2s ease;
 }
 
+.ncop-item-image.selected img {
+    border: 3px solid var(--ndma-green);
+    box-shadow: 0 0 8px var(--ndma-green-glow);
+}
+ 
 .ncop-item-content {
     flex: 1;
     display: flex;
@@ -689,13 +754,54 @@ button.custom-nav-btn.terrain-active:hover {
     justify-content: space-between;
 }
 
+/* Button content with image - left aligned with proper spacing */
+.ncop-item-button .ncop-item-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: 8px;
+}
+
 .ncop-item-label {
     font-size: 11px;
     font-weight: 500;
     color: var(--white);
     line-height: 1.2;
+    text-align: center;
+}
+
+/* Toggle item labels */
+.ncop-item-toggle .ncop-item-label {
     flex: 1;
     margin-right: 8px;
+    text-align: left;
+}
+
+/* Temporal item labels - centered below image */
+.ncop-item-temporal .ncop-item-label {
+    margin-top: 8px;
+    font-size: 10px;
+}
+
+/* Remove right margin from images in temporal items */
+.ncop-item-temporal .ncop-item-image {
+    margin-right: 0;
+}
+
+/* Button labels - left aligned */
+.ncop-item-button .ncop-item-label {
+    text-align: left;
+    flex: 1;
+    margin-right: 8px;
+}
+
+/* Dropdown labels - centered */
+.ncop-item-dropdown .ncop-item-label {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ncop-item-control {
@@ -756,37 +862,28 @@ button.custom-nav-btn.terrain-active:hover {
 
 /* NCOP Dropdown Styles */
 .ncop-dropdown {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: var(--ndma-blue-light);
+    border: 1px solid var(--ndma-blue-light);
     border-radius: 4px;
-    color: white;
+    color: var(--white);
     font-size: 10px;
-    padding: 3px 6px;
-    min-width: 70px;
-    max-width: 90px;
+    padding: 7px 2px;
+    width: 100%;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .ncop-dropdown:focus {
     outline: none;
-    border-color: #46b2ff;
-    background: rgba(70, 178, 255, 0.1);
+    border-color: var(--ndma-blue);
+    background: var(--secondary-bg);
 }
 
 .ncop-dropdown option {
-    background: #1a1a1a;
-    color: white;
+    background: var(--primary-bg);
+    color: var(--white);
     padding: 4px;
 }
-
-/* .accordion-header i:first-child,
-.accordion-header .accordion-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 12px;
-    color: #46b2ff;
-} */
 
 /* Custom accordion icon for GIS layers */
 .accordion-header .accordion-custom-icon {
@@ -800,13 +897,13 @@ button.custom-nav-btn.terrain-active:hover {
     flex: 1;
     font-size: 16px;
     font-weight: 600;
-    color: white;
+    color: var(--white);
 }
 
 .accordion-chevron {
     width: 20px;
     height: 20px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-muted);
     transition: transform 0.2s ease;
     margin-right: 4px;
 }
@@ -826,6 +923,7 @@ button.custom-nav-btn.terrain-active:hover {
 
 .accordion-content.expanded {
     max-height: 600px;
+    padding-bottom: 16px; /* Extra space for last subcategories */
 }
 
 /* Custom Basemap Control */
@@ -835,6 +933,7 @@ button.custom-nav-btn.terrain-active:hover {
     right: 10px;
     z-index: 1000;
     transition: all 0.3s ease;
+    color: var(--white);
 }
 
 .custom-basemap-control.panel-open {

@@ -233,7 +233,7 @@ export class SidebarMenu {
             else if (typeKey === "temporal") {
                 console.log(`✅ Creating temporal items for ${typeKey}:`, Object.keys(items));
                 const grid = document.createElement("div");
-                grid.className = "grid grid-cols-2 gap-2";
+                grid.className = "ncop-grid";
                 Object.keys(items).forEach((itemKey) => {
                     console.log(`🔍 Creating temporal item: ${itemKey}`, items[itemKey]);
                     const temporalElement = this.#createTemporalItem(itemKey, items[itemKey]);
@@ -266,7 +266,7 @@ export class SidebarMenu {
             else if (typeKey === "button") {
                 console.log(`✅ Creating button items for ${typeKey}:`, Object.keys(items));
                 const grid = document.createElement("div");
-                grid.className = "grid grid-cols-2 gap-1";
+                grid.className = "ncop-grid";
                 Object.keys(items).forEach((itemKey) => {
                     console.log(`🔍 Creating button item: ${itemKey}`, items[itemKey]);
                     const buttonElement = this.#createButtonItem(itemKey, items[itemKey]);
@@ -322,7 +322,7 @@ export class SidebarMenu {
         }
         
         const itemDiv = document.createElement("div");
-        itemDiv.className = "ncop-item flex justify-between items-center p-2";
+        itemDiv.className = "ncop-item ncop-item-toggle";
         itemDiv.innerHTML = `
             <span class="ncop-item-label">${itemData.label}</span>
             <label class="ncop-toggle">
@@ -331,7 +331,8 @@ export class SidebarMenu {
             </label>
         `;
         
-        console.log(`✅ Toggle item created successfully:`, itemDiv);        return itemDiv;
+        console.log(`✅ Toggle item created successfully:`, itemDiv);
+        return itemDiv;
     }
 
     #createTemporalItem(itemKey, itemData) {
@@ -343,15 +344,23 @@ export class SidebarMenu {
         }
         
         const itemDiv = document.createElement("div");
-        itemDiv.className = "ncop-item flex flex-col items-center justify-center p-2 text-center";
+        itemDiv.className = "ncop-item ncop-item-temporal";
         itemDiv.innerHTML = `
-            <div class="ncop-item-image w-full h-20 mb-2">
-                <img src="${itemData.image || '/static/images/placeholder.png'}" alt="${itemData.label}" class="w-full h-full object-cover rounded-md" />
+            <div class="ncop-item-image">
+                <img src="${itemData.image || '/static/images/placeholder.png'}" alt="${itemData.label}" />
             </div>
-            <span class="ncop-item-label text-xs text-gray-300">${itemData.label}</span>
+            <span class="ncop-item-label">${itemData.label}</span>
         `;
         
-        console.log(`✅ Temporal item created successfully:`, itemDiv);        return itemDiv;
+        // Add click handler for image selection
+        const imageElement = itemDiv.querySelector('.ncop-item-image');
+        imageElement.addEventListener('click', (event) => {
+            event.stopPropagation();
+            this.#handleImageSelection(imageElement);
+        });
+        
+        console.log(`✅ Temporal item created successfully:`, itemDiv);
+        return itemDiv;
     }
 
     #createDropdownItem(itemKey, itemData) {
@@ -363,7 +372,7 @@ export class SidebarMenu {
         }
         
         const itemDiv = document.createElement("div");
-        itemDiv.className = "ncop-item p-2";
+        itemDiv.className = "ncop-item ncop-item-dropdown";
         // For dropdown, endpoint/key/attribute are at the dropdown object level, not inside children
         const endpoint = itemData.endpoint || "";
         const keyField = itemData.key || "id";
@@ -371,11 +380,30 @@ export class SidebarMenu {
         
         console.log(`🔍 Dropdown config - endpoint: ${endpoint}, key: ${keyField}, attribute: ${attributeField}`);
         
-        itemDiv.innerHTML = `
-            <select class="ncop-dropdown w-full bg-gray-700 border border-gray-600 text-white text-sm rounded-lg p-2.5" data-endpoint="${endpoint}" data-key-field="${keyField}" data-attribute-field="${attributeField}" data-item-key="${itemKey}">
-                <option selected>Loading...</option>
-            </select>
-        `;
+        // Check if dropdown has an image
+        if (itemData.image) {
+            itemDiv.innerHTML = `
+                <div class="ncop-item-image">
+                    <img src="${itemData.image}" alt="${itemData.label || 'Dropdown'}" />
+                </div>
+                <select class="ncop-dropdown" data-endpoint="${endpoint}" data-key-field="${keyField}" data-attribute-field="${attributeField}" data-item-key="${itemKey}">
+                    <option selected>Loading...</option>
+                </select>
+            `;
+            // Add click handler for image selection
+            const imageElement = itemDiv.querySelector('.ncop-item-image');
+            imageElement.addEventListener('click', (event) => {
+                event.stopPropagation();
+                this.#handleImageSelection(imageElement);
+            });
+        } else {
+            itemDiv.innerHTML = `
+                <select class="ncop-dropdown" data-endpoint="${endpoint}" data-key-field="${keyField}" data-attribute-field="${attributeField}" data-item-key="${itemKey}">
+                    <option selected>Loading...</option>
+                </select>
+            `;
+        }
+        
         // Fetch and populate dropdown options asynchronously
         setTimeout(() => {
             const select = itemDiv.querySelector("select");
@@ -417,13 +445,63 @@ export class SidebarMenu {
         }
         
         const itemDiv = document.createElement("div");
-        itemDiv.className = "ncop-item w-full text-white font-bold py-2 px-4 rounded-md border-2 cursor-pointer";
-        itemDiv.style.backgroundColor = itemData.color || "#6366f1";
-        itemDiv.style.borderColor = itemData.outline || "#4f46e5";
-        itemDiv.innerHTML = `${itemData.label}`;
+        itemDiv.className = "ncop-item ncop-item-button";
+        
+        // Set CSS custom properties for colors
+        const buttonColor = itemData.color || "#6366f1";
+        const borderColor = itemData.outline || "#4f46e5";
+        itemDiv.style.setProperty('--button-color', buttonColor);
+        itemDiv.style.setProperty('--border-color', borderColor);
+        
+        // Create button with label on left and toggle on right
+        if (itemData.image) {
+            itemDiv.innerHTML = `
+                <div class="ncop-item-content">
+                    <div class="ncop-item-image">
+                        <img src="${itemData.image}" alt="${itemData.label}" />
+                    </div>
+                    <span class="ncop-item-label">${itemData.label}</span>
+                </div>
+                <label class="ncop-toggle">
+                    <input type="checkbox" data-item-key="${itemKey}">
+                    <span class="ncop-toggle-slider"></span>
+                </label>
+            `;
+            // Add click handler for image selection
+            const imageElement = itemDiv.querySelector('.ncop-item-image');
+            imageElement.addEventListener('click', (event) => {
+                event.stopPropagation();
+                this.#handleImageSelection(imageElement);
+            });
+        } else {
+            itemDiv.innerHTML = `
+                <span class="ncop-item-label">${itemData.label}</span>
+                <label class="ncop-toggle">
+                    <input type="checkbox" data-item-key="${itemKey}">
+                    <span class="ncop-toggle-slider"></span>
+                </label>
+            `;
+        }
         
         console.log(`✅ Button item created successfully:`, itemDiv);
         return itemDiv;
+    }
+
+    #handleImageSelection(clickedImageElement) {
+        // Check if the clicked image is already selected
+        const isAlreadySelected = clickedImageElement.classList.contains('selected');
+        
+        // Remove selection from all images
+        document.querySelectorAll('.ncop-item-image.selected').forEach(image => {
+            image.classList.remove('selected');
+        });
+        
+        // If it wasn't already selected, select it
+        if (!isAlreadySelected) {
+            clickedImageElement.classList.add('selected');
+        }
+        
+        console.log(`🖼️ Image selection updated for:`, clickedImageElement);
     }
 
     #initializeAccordionHandlers() {
