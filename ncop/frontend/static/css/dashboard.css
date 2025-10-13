@@ -161,11 +161,11 @@ html, body {
 
 /* Custom Navigation Controls Container */
 .custom-nav-control {
-    background: var(--primary-bg);
+    /* background: var(--primary-bg); */
     border-radius: 8px;
-    padding: 4px;
-    backdrop-filter: blur(15px);
-    border: 1px solid var(--border-light);
+    /* padding: 4px; */
+    /* backdrop-filter: blur(15px); */
+    /* border: 1px solid var(--border-light); */
     transition: all 0.3s ease;
     transform-origin: bottom right;
     display: flex;
@@ -185,10 +185,6 @@ html, body {
     transition: all 0.2s ease;
 }
 
-/* Adjust container when collapsed */
-.custom-nav-control.collapsed {
-    padding: 4px;
-}
 
 .custom-nav-btn {
     display: flex;
@@ -196,14 +192,14 @@ html, body {
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: var(--tertiary-bg);
-    border-radius: 6px;
+    background: var(--secondary-bg);
+    border-radius: 8px;
     margin-bottom: 5px;
     cursor: pointer;
     transition: all 0.3s ease, height 0.2s ease, margin 0.2s ease, padding 0.2s ease;
     backdrop-filter: blur(10px);
     border: 2px solid var(--border-dark);
-    padding: 4px;
+    /* padding: 4px; */
     color: var(--white);
 }
 
@@ -211,9 +207,9 @@ html, body {
     background: var(--primary-bg);
 }
 
-.custom-nav-btn:active {
+/* .custom-nav-btn:active {
     transform: scale(0.95);
-}
+} */
 
 .custom-nav-btn i {
     width: 14px;
@@ -243,7 +239,7 @@ html, body {
     height: 32px;
     background: var(--primary-bg);
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
     backdrop-filter: blur(15px);
@@ -266,7 +262,7 @@ html, body {
 button#homeExtent.custom-nav-btn {
     background: var(--ndma-green) !important; /* Light green (green-500 with opacity) */
     color: var(--text-primary) !important;
-    border-color: var(--ndma-blue-gradient) !important;
+    border-color: var(--border-strong) !important;
 }
 
 button#homeExtent.custom-nav-btn:hover {

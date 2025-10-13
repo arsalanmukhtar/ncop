@@ -3,6 +3,9 @@ export const ncop_menu_items = {
     gis_layers: {
         "Administrative Boundaries": {
             toggle: {
+                national_boundary: {
+                    label: "National Boundary",
+                },
                 provincial_boundaries: {
                     label: "Provincial Boundaries",
                 },
