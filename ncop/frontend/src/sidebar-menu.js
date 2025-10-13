@@ -1,5 +1,12 @@
 // SidebarMenu.js
 
+import { 
+    handleToggleInteraction,
+    handleTemporalInteraction,
+    handleDropdownInteraction,
+    handleButtonInteraction
+} from './mapbox-functions.js';
+
 /**
  * Handles the main sidebar logic, including configuration loading, UI generation (accordions),
  * search, and NCOP control state management.
@@ -181,12 +188,10 @@ export class SidebarMenu {
         header.innerHTML = `${iconHtml}<span class="accordion-title">${config.title}</span><i data-lucide="chevron-down" class="accordion-chevron"></i>`;
 
         const content = document.createElement("div");
-        content.className = "accordion-content";
-
-        Object.keys(categoryData).forEach((subcategoryKey) => {
+        content.className = "accordion-content";        Object.keys(categoryData).forEach((subcategoryKey) => {
             const subcategoryData = categoryData[subcategoryKey];
             content.appendChild(
-                this.#createNCOPSubcategorySection(subcategoryKey, subcategoryData)
+                this.#createNCOPSubcategorySection(categoryKey, subcategoryKey, subcategoryData)
             );
         });
 
@@ -195,7 +200,7 @@ export class SidebarMenu {
         return sectionDiv;
     }
 
-    #createNCOPSubcategorySection(subcategoryKey, subcategoryData) {
+    #createNCOPSubcategorySection(categoryKey, subcategoryKey, subcategoryData) {
         const subcategoryDiv = document.createElement("div");
         subcategoryDiv.className = "ncop-subcategory";
 
@@ -215,10 +220,9 @@ export class SidebarMenu {
             // JSON: { toggle: { itemKey: { label: ... }, ... } }
             // HTML: label + switch
             if (typeKey === "toggle") {
-                console.log(`✅ Creating toggle items for ${typeKey}:`, Object.keys(items));
-                Object.keys(items).forEach((itemKey) => {
+                console.log(`✅ Creating toggle items for ${typeKey}:`, Object.keys(items));                Object.keys(items).forEach((itemKey) => {
                     console.log(`🔍 Creating toggle item: ${itemKey}`, items[itemKey]);
-                    const toggleElement = this.#createToggleItem(itemKey, items[itemKey]);
+                    const toggleElement = this.#createToggleItem(categoryKey, subcategoryKey, itemKey, items[itemKey]);
                     if (toggleElement) {
                         console.log(`✅ Created toggle element:`, toggleElement);
                         itemsContainer.appendChild(toggleElement);
@@ -233,10 +237,9 @@ export class SidebarMenu {
             else if (typeKey === "temporal") {
                 console.log(`✅ Creating temporal items for ${typeKey}:`, Object.keys(items));
                 const grid = document.createElement("div");
-                grid.className = "ncop-grid";
-                Object.keys(items).forEach((itemKey) => {
+                grid.className = "ncop-grid";                Object.keys(items).forEach((itemKey) => {
                     console.log(`🔍 Creating temporal item: ${itemKey}`, items[itemKey]);
-                    const temporalElement = this.#createTemporalItem(itemKey, items[itemKey]);
+                    const temporalElement = this.#createTemporalItem(categoryKey, subcategoryKey, itemKey, items[itemKey]);
                     if (temporalElement) {
                         console.log(`✅ Created temporal element:`, temporalElement);
                         grid.appendChild(temporalElement);
@@ -246,13 +249,12 @@ export class SidebarMenu {
                 });
                 itemsContainer.appendChild(grid);
             }
-            // --- DROPDOWN CASE ---
-            // JSON: { dropdown: { endpoint: ..., key: ..., attribute: ... } }
+            // --- DROPDOWN CASE ---            // JSON: { dropdown: { endpoint: ..., key: ..., attribute: ... } }
             // HTML: async select, populated from endpoint
             // Only dropdowns use endpoint/key/attribute
             else if (typeKey === "dropdown") {
                 console.log(`✅ Creating dropdown item for ${typeKey}:`, items);
-                const dropdownElement = this.#createDropdownItem(typeKey, items);
+                const dropdownElement = this.#createDropdownItem(categoryKey, subcategoryKey, typeKey, items);
                 if (dropdownElement) {
                     console.log(`✅ Created dropdown element:`, dropdownElement);
                     itemsContainer.appendChild(dropdownElement);
@@ -266,10 +268,9 @@ export class SidebarMenu {
             else if (typeKey === "button") {
                 console.log(`✅ Creating button items for ${typeKey}:`, Object.keys(items));
                 const grid = document.createElement("div");
-                grid.className = "ncop-grid";
-                Object.keys(items).forEach((itemKey) => {
+                grid.className = "ncop-grid";                Object.keys(items).forEach((itemKey) => {
                     console.log(`🔍 Creating button item: ${itemKey}`, items[itemKey]);
-                    const buttonElement = this.#createButtonItem(itemKey, items[itemKey]);
+                    const buttonElement = this.#createButtonItem(categoryKey, subcategoryKey, itemKey, items[itemKey]);
                     if (buttonElement) {
                         console.log(`✅ Created button element:`, buttonElement);
                         grid.appendChild(buttonElement);
@@ -311,9 +312,7 @@ export class SidebarMenu {
 
         subcategoryDiv.appendChild(subcategoryHeader);
         subcategoryDiv.appendChild(itemsContainer);        return subcategoryDiv;
-    }
-
-    #createToggleItem(itemKey, itemData) {
+    }    #createToggleItem(categoryKey, subcategoryKey, itemKey, itemData) {
         console.log(`🔧 Creating toggle item: ${itemKey}`, itemData);
         
         if (!itemData || !itemData.label) {
@@ -331,11 +330,15 @@ export class SidebarMenu {
             </label>
         `;
         
+        // Add event listener for toggle interaction
+        const checkbox = itemDiv.querySelector('input[type="checkbox"]');
+        checkbox.addEventListener('change', (e) => {
+            handleToggleInteraction(categoryKey, subcategoryKey, itemKey, e.target.checked);
+        });
+        
         console.log(`✅ Toggle item created successfully:`, itemDiv);
         return itemDiv;
-    }
-
-    #createTemporalItem(itemKey, itemData) {
+    }    #createTemporalItem(categoryKey, subcategoryKey, itemKey, itemData) {
         console.log(`🔧 Creating temporal item: ${itemKey}`, itemData);
         
         if (!itemData || !itemData.label) {
@@ -352,18 +355,19 @@ export class SidebarMenu {
             <span class="ncop-item-label">${itemData.label}</span>
         `;
         
-        // Add click handler for image selection
+        // Add click handler for image selection and interaction logging
         const imageElement = itemDiv.querySelector('.ncop-item-image');
         imageElement.addEventListener('click', (event) => {
             event.stopPropagation();
+            const wasSelected = imageElement.classList.contains('selected');
             this.#handleImageSelection(imageElement);
+            const newActive = !wasSelected;
+            handleTemporalInteraction(categoryKey, subcategoryKey, itemKey, newActive);
         });
         
         console.log(`✅ Temporal item created successfully:`, itemDiv);
         return itemDiv;
-    }
-
-    #createDropdownItem(itemKey, itemData) {
+    }    #createDropdownItem(categoryKey, subcategoryKey, itemKey, itemData) {
         console.log(`🔧 Creating dropdown item: ${itemKey}`, itemData);
         
         if (!itemData) {
@@ -418,13 +422,19 @@ export class SidebarMenu {
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(`📊 Dropdown data for ${itemKey}:`, data);
-                    select.innerHTML = `<option selected disabled>Select an option</option>`;
-                    data.forEach((row) => {
+                    select.innerHTML = `<option selected disabled>Select an option</option>`;                    data.forEach((row) => {
                         console.log(`🔍 Processing row:`, row);
                         const value = row[keyField];
                         const label = row[attributeField];
                         console.log(`✅ Value: ${value}, Label: ${label}`);
                         select.innerHTML += `<option value="${value}">${label}</option>`;
+                    });
+                    
+                    // Add event listener for dropdown interaction
+                    select.addEventListener('change', (e) => {
+                        const val = e.target.value;
+                        const lbl = e.target.options[e.target.selectedIndex]?.text;
+                        handleDropdownInteraction(categoryKey, subcategoryKey, val, lbl);
                     });
                 })
                 .catch((err) => {
@@ -434,9 +444,7 @@ export class SidebarMenu {
         }, 0);
         
         console.log(`✅ Dropdown item created successfully:`, itemDiv);        return itemDiv;
-    }
-
-    #createButtonItem(itemKey, itemData) {
+    }    #createButtonItem(categoryKey, subcategoryKey, itemKey, itemData) {
         console.log(`🔧 Creating button item: ${itemKey}`, itemData);
         
         if (!itemData || !itemData.label) {
@@ -482,6 +490,12 @@ export class SidebarMenu {
                 </label>
             `;
         }
+        
+        // Add event listener for button interaction
+        const checkbox = itemDiv.querySelector('input[type="checkbox"]');
+        checkbox.addEventListener('change', (e) => {
+            handleButtonInteraction(categoryKey, subcategoryKey, itemKey);
+        });
         
         console.log(`✅ Button item created successfully:`, itemDiv);
         return itemDiv;
